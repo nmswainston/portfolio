@@ -1,3 +1,7 @@
+import Skills from './sections/Skills.jsx'
+import Projects from './sections/Projects.jsx'
+import Contact from './sections/Contact.jsx'
+
 export default function App() {
   return (
     <main>
@@ -28,72 +32,25 @@ export default function App() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="container" style={{ marginTop: 32 }}>
-        <h2>Skills</h2>
-        <div className="grid" style={{ marginTop: 16 }}>
-          <div className="card"><strong>Frontend</strong><p>HTML, CSS, JavaScript, React</p></div>
-          <div className="card"><strong>Backend</strong><p>Node.js, REST APIs, basic databases</p></div>
-          <div className="card"><strong>Other</strong><p>Automation tools, AV systems, deployment on Netlify</p></div>
-        </div>
-      </section>
+      <Skills />
 
       {/* Projects */}
-      <section id="projects" className="container" style={{ marginTop: 32 }}>
-        <h2>Projects</h2>
-        <p className="footer" style={{ marginTop: 4 }}>
-          Case studies use a simple format: Goal → Build → Result → Link.
-        </p>
-
-        <div className="grid" style={{ marginTop: 16 }}>
-          {/* Example case study card */}
-          <article className="card">
-            <strong>Example Project</strong>
-            <p><em>Goal:</em> Make a small site load fast and feel modern.</p>
-            <p><em>Build:</em> Vite + React, image optimization, simpler nav.</p>
-            <p><em>Result:</em> First contentful paint from 2.8s to 1.4s. Cleaner CTA flow.</p>
-            <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-              <a className="btn" href="#" target="_blank" rel="noreferrer">Live</a>
-              <a className="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </article>
-
-          {/* Add more cards by copy pasting this block */}
-          {/* 
-          <article className="card">
-            <strong>Project Name</strong>
-            <p><em>Goal:</em> ...</p>
-            <p><em>Build:</em> ...</p>
-            <p><em>Result:</em> ...</p>
-            <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-              <a className="btn" href="#" target="_blank" rel="noreferrer">Live</a>
-              <a className="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </article>
-          */}
-        </div>
-      </section>
+      <Projects />
 
       {/* Link to your business site */}
       <section className="container" style={{ marginTop: 32 }}>
         <h2>Hire me</h2>
         <p style={{ maxWidth: 720, opacity: 0.9 }}>
-          For client work, visit <a href="https://www.consolelog.com" target="_blank" rel="noreferrer">Console.Log(ic)</a>.
+          For client work, visit <a href="https://www.consolelogic.net" target="_blank" rel="noreferrer">Console.Log(ic)</a>.
           Small business sites, makeovers, and automation tools.
         </p>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="container" style={{ marginTop: 32 }}>
-        <h2>Contact</h2>
-        <form name="contact" method="POST" data-netlify="true" className="card">
-          <input type="hidden" name="form-name" value="contact" />
-          <label>Name<input name="name" required style={{ width: "100%", marginTop: 6, marginBottom: 12 }} /></label>
-          <label>Email<input name="email" type="email" required style={{ width: "100%", marginTop: 6, marginBottom: 12 }} /></label>
-          <label>Message<textarea name="message" rows="5" required style={{ width: "100%", marginTop: 6, marginBottom: 12 }} /></label>
-          <button className="btn" type="submit">Send</button>
-        </form>
-        <p className="footer">Or email me at <a href="mailto:hi@nmswainston.com">hi@nmswainston.com</a></p>
-      </section>
+      <Contact />
+      <footer className="container" style={{ marginTop: 48, paddingBottom: 24 }}>
+        <p className="footer">© {new Date().getFullYear()} Nick Swainston • Built with Vite + React • <a href="https://www.consolelogic.net" target="_blank" rel="noreferrer">Console.Log(ic)</a></p>
+      </footer>
     </main>
   );
 }
