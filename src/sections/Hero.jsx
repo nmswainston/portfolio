@@ -14,18 +14,26 @@ export default function Hero() {
           </p>
           
           <div className="flex gap-4">
-            <a
-              href="#contact"
-              className="px-6 py-3 bg-cyan-400 text-slate-900 font-semibold rounded-lg shadow-md hover:bg-cyan-300 transition"
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="btn btn-primary"
             >
               Work With Me
-            </a>
-            <a
-              href="#projects"
-              className="px-6 py-3 border border-white rounded-lg hover:bg-white hover:text-slate-900 transition"
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById('projects');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="btn btn-outline"
             >
               View My Projects
-            </a>
+            </button>
           </div>
         </div>
         
