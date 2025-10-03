@@ -28,9 +28,10 @@ export default function App() {
 
       {/* Contact */}
       <Contact />
-      <footer className="container" style={{ marginTop: 48, paddingBottom: 24 }}>
-        <p className="footer">© {new Date().getFullYear()} Nick Swainston • Built with Vite + React • <a href="https://www.consolelogic.net" target="_blank" rel="noreferrer">Console.Log(ic)</a></p>
-      </footer>
+
+      {/* Footer */}
+      <Footer />
+      
     </main>
   );
 }
