@@ -1,16 +1,41 @@
-import Section from "../components/Section.jsx";
 export default function Hero() {
-    return (
-      <section className="container hero">
-        <h1 style={{ fontSize: 40, margin: "12px 0" }}>Hi, I’m Nick Swainston.</h1>
-        <p style={{ maxWidth: 720, opacity: 0.9 }}>
-          I learn, build, and ship web projects. I like clean UI, tidy repos, and results you can measure.
-        </p>
-        <div style={{ marginTop: 20, display: "flex", gap: 12 }}>
-          <a className="btn" href="#contact">Work With Me</a>
-          <a className="btn" href="#projects">See My Projects</a>
+  return (
+    <section className="bg-gradient-to-r from-blue-800 via-indigo-800 to-purple-800 text-white min-h-screen flex items-center">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
+        
+        {/* Left Side - Text */}
+        <div className="max-w-xl space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg">
+            Building Websites that Work - Fast, Modern, and Made for Growth
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200">
+            Hi, I’m <span className="font-semibold text-white">Nick Swainston</span> - a web developer who helps businesses 
+            turn their ideas into sleek, responsive sites that convert visitors into customers.
+          </p>
+          
+          <div className="flex gap-4">
+            <a
+              href="#contact"
+              className="px-6 py-3 bg-cyan-400 text-slate-900 font-semibold rounded-lg shadow-md hover:bg-cyan-300 transition"
+            >
+              Work With Me
+            </a>
+            <a
+              href="#projects"
+              className="px-6 py-3 border border-white rounded-lg hover:bg-white hover:text-slate-900 transition"
+            >
+              View My Projects
+            </a>
+          </div>
         </div>
-      </section>
-    );
-  }
-  
+        
+        {/* Right Side - Image Placeholder */}
+        <div className="mt-12 md:mt-0 md:ml-12 flex justify-center">
+          <div className="w-72 h-72 md:w-96 md:h-96 bg-gray-200 rounded-xl shadow-inner flex items-center justify-center">
+            <span className="text-gray-600">[Project Preview / Photo]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
