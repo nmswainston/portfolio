@@ -1,3 +1,4 @@
+import Section from "../components/Section.jsx";
 export default function Hero() {
     return (
       <section className="container hero">
@@ -6,8 +7,8 @@ export default function Hero() {
           I learn, build, and ship web projects. I like clean UI, tidy repos, and results you can measure.
         </p>
         <div style={{ marginTop: 20, display: "flex", gap: 12 }}>
-          <a className="btn" href="#projects">See projects</a>
-          <a className="btn" href="#contact">Contact</a>
+          <a className="btn" href="#contact">Work With Me</a>
+          <a className="btn" href="#projects">See My Projects</a>
         </div>
       </section>
     );
