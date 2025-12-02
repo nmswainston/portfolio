@@ -3,14 +3,12 @@ import { useEffect, useState } from "react";
 const STORAGE_KEY = "theme";
 
 function getInitialTheme() {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
 
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === "light" || stored === "dark") return stored;
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return "light";
 }
 
 // Clean outline sun (balanced, centered)
@@ -72,6 +70,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={handleToggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={isDark}
       className="theme-icon-toggle"
     >
       <span className="theme-icon-wrapper" aria-hidden="true">

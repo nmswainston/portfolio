@@ -3,12 +3,43 @@ import Section from "../components/Section.jsx";
 export default function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <p style={{ maxWidth: 720, opacity: 0.9 }}>
+      <p className="copy">
         Have a role, project, or idea you'd like help with? Send me a message with a
         bit of context and I'll get back to you.
       </p>
 
-      <form className="mt-4 grid gap-3 max-w-md">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        className="mt-4 grid gap-3 max-w-md"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const form = e.target;
+          const formData = new FormData(form);
+          
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+          })
+            .then(() => {
+              alert("Thank you! Your message has been sent.");
+              form.reset();
+            })
+            .catch((error) => {
+              alert("Sorry, there was an error sending your message. Please try again.");
+              console.error(error);
+            });
+        }}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p style={{ display: "none" }}>
+          <label>
+            Don't fill this out if you're human: <input name="bot-field" />
+          </label>
+        </p>
         <div className="grid gap-1">
           <label htmlFor="name" className="text-sm">
             Name
