@@ -244,36 +244,32 @@ header .tag {
   justify-content: center;
 }
 
-/* Base icon state: slightly down, smaller, rotated */
+/* base state for both icons */
 .theme-icon {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
-  transform: translateY(4px) scale(0.9) rotate(-12deg);
+  transform: translateY(3px) scale(0.9);
   transition:
     opacity 0.18s ease-out,
     transform 0.18s ease-out;
 }
 
-/* Give moon a different “resting” rotation so they both animate differently */
+/* tiny variation so they feel slightly different */
+.theme-icon--sun {
+  transform: translateY(3px) scale(0.9) rotate(-6deg);
+}
 .theme-icon--moon {
-  transform: translateY(4px) scale(0.9) rotate(12deg);
+  transform: translateY(3px) scale(0.9) rotate(6deg);
 }
 
-/* Sun active: centered */
-.theme-icon--sun.theme-icon--active {
+/* active one fades in, pops up, straightens */
+.theme-icon--active {
   opacity: 1;
   transform: translateY(0) scale(1) rotate(0deg);
-}
-
-/* Moon active: tiny X-shift to visually sit in same circle */
-.theme-icon--moon.theme-icon--active {
-  opacity: 1;
-  transform: translateY(0) translateX(-0.5px) scale(1) rotate(0deg);
 }
 
 /* Skip link */
