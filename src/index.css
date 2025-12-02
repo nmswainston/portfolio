@@ -221,7 +221,9 @@ header .tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, transform 0.1s ease;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
 }
 
 .theme-icon-toggle:hover {
@@ -230,6 +232,48 @@ header .tag {
 
 .theme-icon-toggle:active {
   transform: scale(0.9);
+}
+
+/* Icon stack */
+.theme-icon-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base icon state: slightly down, smaller, rotated */
+.theme-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(4px) scale(0.9) rotate(-12deg);
+  transition:
+    opacity 0.18s ease-out,
+    transform 0.18s ease-out;
+}
+
+/* Give moon a different “resting” rotation so they both animate differently */
+.theme-icon--moon {
+  transform: translateY(4px) scale(0.9) rotate(12deg);
+}
+
+/* Sun active: centered */
+.theme-icon--sun.theme-icon--active {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+}
+
+/* Moon active: tiny X-shift to visually sit in same circle */
+.theme-icon--moon.theme-icon--active {
+  opacity: 1;
+  transform: translateY(0) translateX(-0.5px) scale(1) rotate(0deg);
 }
 
 /* Skip link */
