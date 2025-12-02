@@ -13,35 +13,42 @@ function getInitialTheme() {
     : "light";
 }
 
+// Clean outline sun (balanced, centered)
 const SunSvg = () => (
   <svg
     aria-hidden="true"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
     className="h-5 w-5"
   >
-    <circle cx="12" cy="12" r="4.2" />
-    <path d="M12 2.3v2.4m0 15v2.4m9.3-9.3h-2.4M4.3 12H2m14.8-7.8l-1.7 1.7M7.7 19.8L6 21.5M6 5.8L7.7 7.5m9.1 9.1l1.7 1.7" />
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" />
+    <path d="M12 20v2" />
+    <path d="M4.93 4.93 6.34 6.34" />
+    <path d="M17.66 17.66 19.07 19.07" />
+    <path d="M2 12h2" />
+    <path d="M20 12h2" />
+    <path d="M6.34 17.66 4.93 19.07" />
+    <path d="M19.07 4.93 17.66 6.34" />
   </svg>
 );
 
+// Clean outline moon (centered enough to overlap nicely)
 const MoonSvg = () => (
   <svg
     aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
     className="h-5 w-5"
   >
-    {/* Standard lucide-style crescent, clean outline */}
     <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
   </svg>
 );
@@ -68,7 +75,7 @@ export default function ThemeToggle() {
       className="theme-icon-toggle"
     >
       <span className="theme-icon-wrapper" aria-hidden="true">
-        {/* Sun (active in light mode) */}
+        {/* Sun (shows in LIGHT mode) */}
         <span
           className={
             "theme-icon theme-icon--sun " +
@@ -78,7 +85,7 @@ export default function ThemeToggle() {
           <SunSvg />
         </span>
 
-        {/* Moon (active in dark mode) */}
+        {/* Moon (shows in DARK mode) */}
         <span
           className={
             "theme-icon theme-icon--moon " +
