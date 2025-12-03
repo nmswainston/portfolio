@@ -1,67 +1,57 @@
 // src/components/DeviceMockup.jsx
+import laptopFrame from "../assets/laptop-frame.png.png";
+import phoneFrame from "../assets/phone-frame.png.png";
 
-/* 
-
-  type: "laptop" | "phone"
-
-  className: extra classes for scaling etc
-
-*/
-
-export default function DeviceMockup({ type = "laptop", alt, className = "" }) {
-
+export default function DeviceMockup({
+  type = "laptop",
+  image,
+  alt,
+  className = "",
+}) {
   const isPhone = type === "phone";
-
-
+  const frameSrc = isPhone ? phoneFrame : laptopFrame;
 
   return (
-
     <div
-
-      className={`relative inline-flex items-center justify-center drop-shadow-md ${
-
-        isPhone ? "max-w-[100px]" : "max-w-[220px]"
-
-      } w-full ${className}`}
-
+      className={`relative inline-flex items-center justify-center ${className}`}
+      aria-hidden={alt ? "true" : "false"}
     >
+      {/* Frame image */}
+      <img
+        src={frameSrc}
+        alt=""
+        className={isPhone ? "w-[120px] h-auto" : "w-[260px] h-auto"}
+      />
 
-      <div
-
-        className={[
-
-          "w-full rounded-[18px] bg-gradient-to-b from-gray-100 to-gray-200",
-
-          "border border-gray-200",
-
-          "flex items-center justify-center",
-
-          isPhone ? "aspect-[9/16] px-6 py-8" : "aspect-[16/10] px-4 py-5",
-
-        ].join(" ")}
-
-        aria-hidden={alt ? "true" : "false"}
-
-      >
-
-        {/* Placeholder "screen" until you wire real screenshots */}
-
-        <div className="w-full h-full rounded-[10px] bg-gradient-to-br from-gray-200 to-gray-100" />
-
-      </div>
-
-
-
-      {/* simple notch or camera dot for phone */}
-
-      {isPhone && (
-
-        <div className="absolute top-2 h-1.5 w-6 rounded-full bg-gray-300" />
-
+      {/* Screenshot inside frame */}
+      {image && (
+        <div
+          className="absolute overflow-hidden rounded-[6px] bg-black"
+          style={
+            isPhone
+              ? {
+                  // phone screen area – tweak as needed
+                  top: "9%",
+                  left: "13%",
+                  right: "13%",
+                  bottom: "11%",
+                }
+              : {
+                  // laptop screen area – tweak as needed
+                  top: "12%",
+                  left: "14%",
+                  right: "14%",
+                  bottom: "18%",
+                }
+          }
+        >
+          <img
+            src={image}
+            alt={alt || ""}
+            className="w-full h-full object-cover"
+          />
+        </div>
       )}
-
     </div>
-
   );
-
 }
