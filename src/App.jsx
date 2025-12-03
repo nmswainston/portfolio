@@ -9,13 +9,11 @@ import About from "./sections/About.jsx";
 import Skills from "./sections/Skills.jsx";
 import Contact from "./sections/Contact.jsx";
 import ProjectDetail from "./sections/ProjectDetail.jsx";
-import CaseStudies from "./pages/CaseStudies.jsx";
 
 function HomePage() {
   return (
     <main id="main-content">
       <WorkShowcase />
-      <AllWork />
       <About />
       <Skills />
       <Contact />
@@ -33,7 +31,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/work" element={<CaseStudies />} />
+        <Route path="/work" element={<AllWork />} />
         <Route path="/work/:slug" element={<ProjectDetail />} />
       </Routes>
 

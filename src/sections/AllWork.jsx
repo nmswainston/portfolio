@@ -9,19 +9,7 @@ import { projects } from "./projectsData.js";
 
 export default function AllWork() {
 
-  const additionalProjects = projects.filter((p) => !p.featured);
-
-
-
-  if (additionalProjects.length === 0) {
-
-    // If you don't have more than 6 yet, you can either hide this
-
-    // or just return null.
-
-    return null;
-
-  }
+  const allProjects = projects;
 
 
 
@@ -31,7 +19,7 @@ export default function AllWork() {
 
       id="all-work"
 
-      className="section pt-12 pb-20 border-t border-[color:var(--line)]"
+      className="section pt-20 pb-20"
 
       aria-labelledby="all-work-heading"
 
@@ -43,7 +31,7 @@ export default function AllWork() {
 
           <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-2">
 
-            More projects
+            Portfolio
 
           </p>
 
@@ -55,13 +43,13 @@ export default function AllWork() {
 
           >
 
-            More of my work
+            All of my work
 
           </h2>
 
           <p className="mt-3 text-sm opacity-90">
 
-            A few extra builds and experiments that show how I think about
+            A collection of projects and experiments that show how I think about
 
             layout, semantics, and front end implementation.
 
@@ -71,9 +59,9 @@ export default function AllWork() {
 
 
 
-        <div className="mt-8 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
 
-          {additionalProjects.map((project, index) => {
+          {allProjects.map((project, index) => {
 
             const mockupType = (index + 1) % 3 === 0 ? "phone" : "laptop";
 
@@ -106,6 +94,8 @@ export default function AllWork() {
                       type={mockupType}
 
                       alt={project.name}
+
+                      image={project.image}
 
                       className="scale-[0.95] transition-transform duration-150 group-hover:-translate-y-1 group-hover:drop-shadow-lg"
 

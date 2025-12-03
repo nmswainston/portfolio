@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Styles are ordered to follow the page structure:
+   globals → skip link → header → main sections → footer */
+
 /* Theme variables */
 :root {
   color-scheme: light dark;
@@ -55,7 +58,7 @@ a {
   text-decoration: none;
 }
 .container {
-  max-width: 1100px;
+  max-width: 1850px;
   margin: 0 auto;
   padding: 16px 24px;
 }
@@ -134,6 +137,27 @@ button:focus-visible {
 
 .copy + .copy {
   margin-top: 12px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  z-index: 999;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 8px);
 }
 
 /* Header / Nav */
@@ -291,33 +315,6 @@ header .tag {
 .theme-icon--active {
   opacity: 1;
   transform: translateY(0) scale(1) rotate(0deg);
-}
-
-/* Skip link */
-.skip-link {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -120%);
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--card);
-  color: var(--fg);
-  border: 1px solid var(--line);
-  z-index: 999;
-  font-size: 13px;
-  text-decoration: none;
-  transition: transform 0.15s ease;
-}
-
-.skip-link:focus-visible {
-  transform: translate(-50%, 8px);
-}
-
-/* Footer spacing */
-footer.container {
-  margin-top: 48px;
-  padding-bottom: 24px;
 }
 
 .section {
@@ -510,4 +507,10 @@ h2 {
   border-radius: 999px;
   background: rgba(148, 163, 184, 0.8);
   z-index: 2;
+}
+
+/* Footer spacing */
+footer.container {
+  margin-top: 48px;
+  padding-bottom: 24px;
 }

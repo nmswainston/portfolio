@@ -20,7 +20,7 @@ export default function WorkShowcase() {
 
       id="projects"
 
-      className="section pt-20 pb-20"
+      className="section pt-20 pb-16"
 
       aria-labelledby="work-heading"
 
@@ -87,8 +87,8 @@ export default function WorkShowcase() {
 
 
         {/* Right project gallery – 6 featured */}
-
-        <div className="grid gap-16 sm:grid-cols-2 xl:grid-cols-3 mt-24 lg:mt-28">
+     
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-16 lg:mt-18">
 
           {featuredProjects.map((project, index) => {
 
@@ -102,7 +102,7 @@ export default function WorkShowcase() {
 
                 key={project.slug}
 
-                className="flex flex-col items-center text-center gap-3"
+                className="flex flex-col items-center text-center gap-2"
 
                 aria-label={project.name}
 
@@ -112,7 +112,7 @@ export default function WorkShowcase() {
 
                   to={`/work/${project.slug}`}
 
-                  className="group flex flex-col items-center text-center gap-3"
+                  className="group flex flex-col items-center text-center gap-2"
 
                 >
 
@@ -122,11 +122,13 @@ export default function WorkShowcase() {
 
                     alt={project.name}
 
+                    image={project.image}
+
                     className="scale-[1.05] transition-transform duration-150 group-hover:-translate-y-1 group-hover:drop-shadow-lg"
 
                   />
 
-                  <p className="text-xs font-medium tracking-tight group-hover:opacity-100 opacity-90">
+                  <p className="mt-1 text-xs font-medium tracking-tight group-hover:opacity-100 opacity-90">
 
                     {project.name}
 
