@@ -45,7 +45,10 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  min-height: 100vh;
   margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background: var(--bg);
   color: var(--fg);
   font-family: "Inter", system-ui, Segoe UI, Roboto, Ubuntu, Arial;

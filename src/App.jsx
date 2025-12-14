@@ -23,19 +23,22 @@ function HomePage() {
 
 export default function App() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
+
       <Header />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/work" element={<AllWork />} />
-        <Route path="/work/:slug" element={<ProjectDetail />} />
-      </Routes>
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/work" element={<AllWork />} />
+          <Route path="/work/:slug" element={<ProjectDetail />} />
+        </Routes>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
