@@ -20,13 +20,13 @@ export default function WorkShowcase() {
 
       id="projects"
 
-      className="section pt-20 pb-16"
+      className="section pt-16 pb-10 min-h-[calc(100vh-80px)]"
 
       aria-labelledby="work-heading"
 
     >
 
-      <div className="container lg:grid lg:grid-cols-[300px_1fr] lg:gap-24 xl:gap-32">
+      <div className="container lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-20">
 
         {/* Left intro column */}
 
@@ -88,7 +88,7 @@ export default function WorkShowcase() {
 
         {/* Right project gallery – 6 featured */}
      
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-16 lg:mt-18">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 mt-14 lg:mt-16">
 
           {featuredProjects.map((project, index) => {
 
@@ -124,7 +124,7 @@ export default function WorkShowcase() {
 
                     image={project.image}
 
-                    className="scale-[1.05] transition-transform duration-150 group-hover:-translate-y-1 group-hover:drop-shadow-lg"
+                    className="scale-[1.0] transition-transform duration-150 group-hover:-translate-y-1 group-hover:drop-shadow-lg"
 
                   />
 

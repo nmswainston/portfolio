@@ -14,12 +14,13 @@ export default function DeviceMockup({
   return (
     <div
       className={`relative inline-flex items-center justify-center ${className}`}
-      aria-hidden={alt ? "true" : "false"}
     >
-      {/* Frame image */}
+      {/* Frame image (decorative only) */}
       <img
         src={frameSrc}
         alt=""
+        aria-hidden="true"
+        role="presentation"
         className={isPhone ? "w-[120px] h-auto" : "w-[260px] h-auto"}
       />
 
