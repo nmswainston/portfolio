@@ -35,7 +35,7 @@ export default function Contact() {
         }}
       >
         <input type="hidden" name="form-name" value="contact" />
-        <p style={{ display: "none" }}>
+        <p className="hidden">
           <label>
             Don't fill this out if you're human: <input name="bot-field" />
           </label>
@@ -50,7 +50,7 @@ export default function Contact() {
             type="text"
             autoComplete="name"
             required
-            className="rounded-md border border-[color:var(--line)] bg-[color:var(--card)] px-3 py-2 text-sm"
+            className="rounded-md border border-(--line) bg-(--card) px-3 py-2 text-sm"
           />
         </div>
 
@@ -64,7 +64,7 @@ export default function Contact() {
             type="email"
             autoComplete="email"
             required
-            className="rounded-md border border-[color:var(--line)] bg-[color:var(--card)] px-3 py-2 text-sm"
+            className="rounded-md border border-(--line) bg-(--card) px-3 py-2 text-sm"
           />
         </div>
 
@@ -77,7 +77,7 @@ export default function Contact() {
             name="message"
             rows={4}
             required
-            className="rounded-md border border-[color:var(--line)] bg-[color:var(--card)] px-3 py-2 text-sm"
+            className="rounded-md border border-(--line) bg-(--card) px-3 py-2 text-sm"
             placeholder="Tell me a bit about what you’re looking for."
           />
         </div>
