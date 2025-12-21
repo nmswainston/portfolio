@@ -1,84 +1,80 @@
-Nick Swainston Portfolio
+# Nick Swainston Portfolio
 
 A clean, fast, React-powered personal portfolio showcasing my UI/UX work, web development projects, and ongoing journey from AV technician to full-stack and AI-driven engineer.
 
-This site is built with React + Vite for a lightweight dev experience, and it includes my project showcase, resume, contact tools, and custom components designed to highlight both design and technical skill.
+This site is built with React + Vite for a lightweight dev experience, and it includes my project showcase, contact tools, and custom components designed to highlight both design and technical skill.
 
-Features
+## Features
 
-Fully responsive modern UI
+- Fully responsive modern UI
+- Dark and light modes
+- Semantic, accessible HTML structure
+- Project showcase with case studies
+- Contact form integration
+- Built with reusable components and clean structure
 
-Dark and light modes
+## Tech Stack
 
-Semantic, accessible HTML structure
+- React 19
+- Vite
+- JavaScript / JSX
+- Tailwind CSS v4
+- React Router
+- ESLint
+- Netlify (deployment)
 
-Smooth page transitions
-
-Project showcase with real code and case studies
-
-Downloadable resume and contact links
-
-Built with reusable components and clean structure
-
-Tech Stack
-
-React
-
-Vite
-
-JavaScript / JSX
-
-Tailwind CSS
-
-ESLint
-
-Framer Motion (if you want it listed; remove if not using)
-
-Netlify / Vercel for deployment (update depending on where you host)
-
-Local Development
+## Local Development
 
 Clone the repo and install dependencies:
 
+```bash
 git clone https://github.com/nmswainston/portfolio.git
 cd portfolio
 npm install
-
+```
 
 Run the dev server:
 
+```bash
 npm run dev
-
+```
 
 Build for production:
 
+```bash
 npm run build
-
+```
 
 Preview the production build:
 
+```bash
 npm run preview
+```
 
-Project Structure
+## Project Structure
+
+```
 src/
-  components/      Reusable UI components
-  sections/        Homepage sections like Hero, About, Projects, Contact
-  assets/          Images, icons, and static files
-  styles/          Global or Tailwind config
+  components/      Reusable UI components (Header, Footer, Card, etc.)
+  sections/         Homepage sections and page components
+  assets/           Images, icons, and static files
+  index.css         Global styles and Tailwind configuration
+```
 
-About Me
+## Deployment
 
-I'm a home automation technician turned web developer and UI/UX designer.
-I blend hands-on problem-solving with clean code, design systems, automation, and AI integration. My goal is to create tools, sites, and interfaces that make life easier, not more complicated.
+This project is configured for deployment on Netlify. The build output is in the `dist` directory.
 
-If you’d like to see more of my work, connect with me, or hire me for freelance projects — check out the live site.
+## About Me
 
-Live Site
+I'm a home automation technician turned web developer and UI/UX designer. I blend hands-on problem-solving with clean code, design systems, automation, and AI integration. My goal is to create tools, sites, and interfaces that make life easier, not more complicated.
+
+If you'd like to see more of my work, connect with me, or hire me for freelance projects — check out the live site.
+
+## Live Site
 
 https://nmswainston.com
 
-(Or whatever domain your portfolio uses. Replace this.)
+## License
 
-License
-
-This is my personal portfolio. Please don’t reuse my designs or content without asking. The underlying code can be used as reference.
+This is my personal portfolio. Please don't reuse my designs or content without asking. The underlying code can be used as reference.

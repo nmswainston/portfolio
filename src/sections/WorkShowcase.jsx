@@ -5,173 +5,145 @@ import DeviceMockup from "../components/DeviceMockup.jsx";
 
 import { projects } from "./projectsData.js";
 
-
-
 export default function WorkShowcase() {
-
+  // Get exactly 6 featured projects in the order they appear in projectsData.js
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 6);
-  // slice is just a safety guard in case you mark 8 as featured later
-
-
 
   return (
-
     <section
-
-      id="projects"
-
-      className="section pt-16 pb-10 min-h-[calc(100vh-80px)]"
-
-      aria-labelledby="work-heading"
-
+      id="hero"
+      className="section container"
+      aria-labelledby="hero-heading"
     >
+      <div className="pt-10 md:pt-14 pb-8 md:pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-10 items-start lg:min-h-[calc(100vh-140px)]">
+            {/* Left column - Intro content */}
+            <div className="lg:col-span-5 max-w-xl w-full">
+              <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
+                Portfolio · Frontend · Automation
+              </p>
 
-      <div className="container lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-20">
-
-        {/* Left intro column */}
-
-        <div className="mb-10 lg:mb-0 lg:sticky lg:top-0 self-start">
-
-          <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
-
-            Portfolio · Frontend · Automation
-
-          </p>
-
-
-
-          <h1
-
-            id="work-heading"
-
-            className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
-
-          >
-
-            Hello!
-
-            <br />
-
-            I&apos;m Nick
-
-            <br />
-
-            I&apos;m a Developer.
-
-          </h1>
-
-
-
-          <p className="text-sm md:text-[0.95rem] max-w-xs leading-[1.55] opacity-90">
-
-            I like connecting the dots between design and implementation. I
-
-            build clean UIs, wire them to real data and tools, and use
-
-            automation or AI when it actually makes people&apos;s lives easier.
-
-          </p>
-
-
-
-          <p className="text-[0.68rem] uppercase tracking-[0.22em] mt-6 opacity-60">
-
-            Selected work
-
-          </p>
-
-          <div className="mt-2 mb-6 h-px w-24 bg-[color:var(--line)]" />
-
-        </div>
-
-
-
-        {/* Right project gallery – 6 featured */}
-     
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 mt-14 lg:mt-16">
-
-          {featuredProjects.map((project, index) => {
-
-            const mockupType = (index + 1) % 3 === 0 ? "phone" : "laptop";
-
-
-
-            return (
-
-              <article
-
-                key={project.slug}
-
-                className="flex flex-col items-center text-center gap-2"
-
-                aria-label={project.name}
-
+              <h1
+                id="hero-heading"
+                className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
               >
+                Hello!
+                <br />
+                I&apos;m Nick
+                <br />
+                I&apos;m a Developer.
+              </h1>
 
-                <Link
+              <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6">
+                I like connecting the dots between design and implementation. I
+                build clean UIs, wire them to real data and tools, and use
+                automation or AI when it actually makes people&apos;s lives easier.
+              </p>
+            </div>
 
-                  to={`/work/${project.slug}`}
+            {/* Right column - Selected Work */}
+            <div className="lg:col-span-7">
+              {/* Compact section header */}
+              <div className="mb-6">
+                <h2 id="work-heading" className="text-2xl md:text-3xl font-semibold mb-1">
+                  Selected Work
+                </h2>
+                <div className="h-px w-12 bg-(--line) mt-2"></div>
+              </div>
 
-                  className="group flex flex-col items-center text-center gap-2"
+              {/* Project grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredProjects.map((project) => {
+                  return (
+                    <article
+                      key={project.slug}
+                      className="work-tile group relative flex flex-col h-full w-full p-4 transition-transform duration-200 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-(--accent)/60 focus-within:ring-offset-0"
+                      aria-label={project.title}
+                    >
+                      {/* Overlay link covering entire card */}
+                      <Link
+                        to={`/work/${project.slug}`}
+                        className="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
+                        aria-label={`View ${project.title}`}
+                      />
 
-                >
+                      <div className="flex flex-col flex-1">
+                        {/* Laptop mockup with standardized height */}
+                        <div className="w-full aspect-16/10 flex items-center justify-center">
+                          <div className="transition-transform duration-200 group-hover:-translate-y-1 group-hover:drop-shadow-xl group-focus-within:-translate-y-1 group-focus-within:drop-shadow-xl">
+                            <DeviceMockup
+                              type="laptop"
+                              alt={project.title}
+                              image={project.image}
+                              className="scale-[1.05]"
+                            />
+                          </div>
+                        </div>
 
-                  <DeviceMockup
+                        {/* Content section with consistent spacing */}
+                        <div className="mt-4 space-y-2">
+                          {/* Title */}
+                          <h3 className="text-base font-semibold tracking-tight group-hover:opacity-100 opacity-95 transition-opacity">
+                            {project.title}
+                          </h3>
 
-                    type={mockupType}
+                          {/* Description */}
+                          {project.description && (
+                            <p className="text-xs leading-relaxed opacity-80 line-clamp-2">
+                              {project.description}
+                            </p>
+                          )}
 
-                    alt={project.name}
+                          {/* Tags */}
+                          {project.tags && project.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5">
+                              {project.tags.slice(0, 3).map((tag, idx) => (
+                                <span key={idx} className="tag">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
 
-                    image={project.image}
+                        {/* Buttons row - positioned above overlay */}
+                        <div className="mt-auto flex items-center gap-3 pt-2 relative z-20">
+                          <Link 
+                            to={`/work/${project.slug}`} 
+                            className="link-text text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) focus-visible:rounded"
+                          >
+                            Case Study →
+                          </Link>
+                          {project.liveUrl && (
+                            <>
+                              <span className="text-xs opacity-40">·</span>
+                              <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="link-text text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) focus-visible:rounded"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                Live →
+                              </a>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
 
-                    className="scale-[1.0] transition-transform duration-150 group-hover:-translate-y-1 group-hover:drop-shadow-lg"
-
-                  />
-
-                  <p className="mt-1 text-xs font-medium tracking-tight group-hover:opacity-100 opacity-90">
-
-                    {project.name}
-
-                  </p>
-
+              {/* View all work link */}
+              <div className="mt-10 pb-8 md:pb-12">
+                <Link to="/work" className="link-text">
+                  View all work →
                 </Link>
-
-              </article>
-
-            );
-
-          })}
-
-
-
-          {/* if you have fewer than 6 for now, grid still behaves */}
-
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
-
-
-
-      {/* View all work link */}
-
-      <div className="container mt-10">
-
-        <Link
-
-          to="/work"
-
-          className="text-sm font-medium underline opacity-80 hover:opacity-100"
-
-        >
-
-          View more work →
-
-        </Link>
-
-      </div>
-
     </section>
-
   );
-
 }

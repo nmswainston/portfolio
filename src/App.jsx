@@ -5,8 +5,10 @@ import Footer from "./components/Footer.jsx";
 
 import WorkShowcase from "./sections/WorkShowcase.jsx";
 import AllWork from "./sections/AllWork.jsx";
+import HowIWork from "./sections/HowIWork.jsx";
+import SkillsFocus from "./sections/SkillsFocus.jsx";
 import About from "./sections/About.jsx";
-import Skills from "./sections/Skills.jsx";
+import WhatLookingFor from "./sections/WhatLookingFor.jsx";
 import Contact from "./sections/Contact.jsx";
 import ProjectDetail from "./sections/ProjectDetail.jsx";
 
@@ -14,8 +16,10 @@ function HomePage() {
   return (
     <main id="main-content">
       <WorkShowcase />
+      <HowIWork />
+      <SkillsFocus />
       <About />
-      <Skills />
+      <WhatLookingFor />
       <Contact />
     </main>
   );

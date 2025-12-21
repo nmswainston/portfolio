@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "push": "powershell -ExecutionPolicy Bypass -File ./scripts/push.ps1"
+    "push": "powershell -ExecutionPolicy Bypass -File ./scripts/push.ps1",
+    "screenshots": "node scripts/capture-screenshots.js"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -27,6 +28,8 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
+    "puppeteer": "^23.11.1",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.17",
     "vite": "^7.1.9"
   },
