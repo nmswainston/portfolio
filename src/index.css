@@ -28,13 +28,13 @@
 
 /* Light theme */
 :root[data-theme="light"] {
-  --bg: #F6F3EE;
-  --fg: #0F172A;
+  --bg: #F7F9FC;
+  --fg: #0B1220;
   --card: #FFFFFF;
-  --line: #E5E0D8;
-  --accent: #0EA5E9;
-  --muted: #475569;
-  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --line: #D6DEE9;
+  --accent: #2563EB;
+  --muted: #4B5565;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 /* Dark theme */
@@ -118,7 +118,7 @@ a {
 }
 .card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 28px rgba(0,0,0,.35),0 0 0 1px rgba(88,166,255,.2) inset}
 :root[data-theme="light"] .card:hover {
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12), 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent) inset;
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12), 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent) inset;
 }
 .btn {
   display: inline-flex;
@@ -153,7 +153,7 @@ a {
 }
 
 :root[data-theme="light"] .btn:hover {
-  box-shadow: 0 8px 18px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
 }
 
 .btn:active {
@@ -697,7 +697,7 @@ h2 {
 }
 
 :root[data-theme="light"] .project-card:hover {
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
 }
 
 /* Work tiles - shared styling for Selected Work and All Work pages */
@@ -725,7 +725,7 @@ h2 {
 
 /* Light mode hover: enhanced shadow */
 :root[data-theme="light"] .work-tile:hover {
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 /* Dark mode hover: enhanced shadow */
@@ -739,7 +739,7 @@ h2 {
 }
 
 :root[data-theme="light"] article[aria-label]:hover {
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 /* Simple 2-line clamp utility if Tailwind plugin isn't available */
