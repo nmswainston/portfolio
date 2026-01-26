@@ -1072,6 +1072,23 @@ h2 {
   opacity: 0.85;
 }
 
+* Project Navigation sizing + alignment */
+.case-study-nav-link {
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .case-study-nav-link {
+    width: 260px;
+    min-height: 64px;
+  }
+}
+
+.case-study-nav-label {
+  flex: 1;
+}
+
 .case-study-nav-link:hover {
   opacity: 1;
   background: color-mix(in srgb, var(--card) 60%, transparent);
