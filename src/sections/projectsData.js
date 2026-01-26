@@ -37,12 +37,12 @@ export const projects = [
     featured: true,
     image: litchfieldShot,
     description: "One-page marketing site for a neighborhood coffee shop with a focus on cozy vibes and mobile-first browsing.",
-    liveUrl: "https://litchfield-perk.netlify.app/",
+    liveUrl: "https://litchfieldperk.com/",
     goal: "Give the shop a simple, modern web presence that looks great on phones, makes the menu easy to skim, and feels like a natural extension of the in-store experience.",
     process: "Started by mapping the core content sections (hero, menu highlights, location, hours, contact). Built the layout in React with semantic HTML and Tailwind utility classes for spacing and typography. Used a warm color palette and subtle background textures to match the brand. Paid extra attention to keyboard navigation and clear heading hierarchy so the page is easy to navigate for everyone.",
     result: "Shipped a fast, lightweight site that the owners can share on social and use in their Google Business profile. The layout is easy to extend with seasonal promos without breaking the overall structure.",
     // Legacy field for backward compatibility
-    link: "https://litchfield-perk.netlify.app/",
+    link: "https://litchfieldperk.com/",
   },
   {
     slug: "relay",
