@@ -1,6 +1,5 @@
 // src/sections/projectsData.js
 // Note: Screenshot filenames must use single extensions (e.g., .png) to work with Vite imports.
-// Double extensions (e.g., .png.png) will cause import/resolve errors.
 import consoleLogicShot from "../assets/projects/console-logic.png";
 import litchfieldShot from "../assets/projects/litchfield-perk.png";
 import relayShot from "../assets/projects/relay.png";
