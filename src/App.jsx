@@ -13,6 +13,7 @@ import WhatLookingFor from "./sections/WhatLookingFor.jsx";
 import Contact from "./sections/Contact.jsx";
 import ProjectDetail from "./sections/ProjectDetail.jsx";
 import NotFound from "./sections/NotFound.jsx";
+import BackToTop from "./components/BackToTop.jsx";
 
 function HomePage() {
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function App() {
       </div>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 }
