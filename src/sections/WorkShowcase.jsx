@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
+import TagBadge from "../components/TagBadge.jsx";
 
 import { projects } from "./projectsData.js";
 
@@ -106,9 +107,7 @@ export default function WorkShowcase() {
                           {project.tags && project.tags.length > 0 && (
                             <div className="flex flex-wrap gap-1.5">
                               {project.tags.slice(0, 3).map((tag, idx) => (
-                                <span key={idx} className="tag">
-                                  {tag}
-                                </span>
+                                <TagBadge key={idx} tag={tag} />
                               ))}
                             </div>
                           )}

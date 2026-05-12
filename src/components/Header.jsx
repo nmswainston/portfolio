@@ -93,7 +93,10 @@ export default function Header() {
               </>
             )}
 
-            {/* Theme toggle button stays here */}
+            <a href="/#contact" className="btn" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>
+              Let&apos;s Talk
+            </a>
+
             <ThemeToggle />
           </nav>
 
