@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import TagBadge from "../components/TagBadge.jsx";
-import TechScroller from "../components/TechScroller.jsx";
 import profilePhoto from "../assets/profile.jpg";
 import { projects } from "./projectsData.js";
+
+const HERO_TECHS = [
+  { name: "React",        icon: "https://cdn.simpleicons.org/react" },
+  { name: "TypeScript",   icon: "https://cdn.simpleicons.org/typescript" },
+  { name: "JavaScript",   icon: "https://cdn.simpleicons.org/javascript" },
+  { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
+  { name: "Vite",         icon: "https://cdn.simpleicons.org/vite" },
+];
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
@@ -11,10 +18,14 @@ export default function WorkShowcase() {
   return (
     <section id="hero" className="section container" aria-labelledby="hero-heading">
 
-      {/* Intro — full viewport height */}
-      <div className="flex flex-col justify-between" style={{ minHeight: "calc(100vh - 64px)" }}>
-        <div className="pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Text */}
+      {/* Hero — full viewport height, vertically centered */}
+      <div
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+        style={{ minHeight: "calc(100vh - 64px)" }}
+      >
+        {/* Left column */}
+        <div className="flex flex-col gap-10 py-12 lg:py-0">
+          {/* Text + CTAs */}
           <div>
             <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
               Portfolio · Frontend · Automation
@@ -25,43 +36,49 @@ export default function WorkShowcase() {
             >
               Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
             </h1>
-            <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6">
+            <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-md">
               I like connecting the dots between design and implementation. I build
               clean UIs, wire them to real data and tools, and use automation or AI
               when it actually makes people&apos;s lives easier.
             </p>
-            <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
-              Download Resume
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/work" className="btn">View My Work →</Link>
+              <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn btn-ghost">
+                Download Resume
+              </a>
+            </div>
           </div>
 
-          {/* Photo */}
-          <div className="flex justify-center md:justify-end">
-            <div className="relative w-64 md:w-72 lg:w-80">
-              <img
-                src={profilePhoto}
-                alt="Nick Swainston"
-                className="w-full aspect-[3/4] object-cover object-top rounded-2xl border border-(--line)"
-                style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.25)" }}
-              />
+          {/* Tech icons */}
+          <div>
+            <div className="h-px w-full bg-(--line) mb-5" />
+            <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-40 mb-5">
+              Working with modern technologies
+            </p>
+            <div className="flex items-center gap-6">
+              {HERO_TECHS.map((tech) => (
+                <img
+                  key={tech.name}
+                  src={tech.icon}
+                  alt={tech.name}
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  title={tech.name}
+                />
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Tech scroller */}
-        <div className="pb-4">
-          <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-40 mb-5">
-            Working with modern technologies
-          </p>
-          <TechScroller />
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="pb-8 flex flex-col items-start gap-2 opacity-40">
-          <span className="text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 animate-bounce" aria-hidden="true">
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
+        {/* Right column — photo */}
+        <div className="flex justify-center lg:justify-end">
+          <img
+            src={profilePhoto}
+            alt="Nick Swainston"
+            className="w-full max-w-sm lg:max-w-md aspect-[3/4] object-cover object-top rounded-2xl border border-(--line)"
+            style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}
+          />
         </div>
       </div>
 
