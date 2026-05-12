@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DeviceMockup from "./DeviceMockup.jsx";
+import TagBadge from "./TagBadge.jsx";
 import { projects } from "../sections/projectsData.js";
 
 /**
@@ -79,9 +80,7 @@ export default function CaseStudyLayout({ project, children }) {
               {project.tags && project.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.tags.map((tag, idx) => (
-                    <span key={idx} className="tag">
-                      {tag}
-                    </span>
+                    <TagBadge key={idx} tag={tag} />
                   ))}
                 </div>
               )}
