@@ -47,7 +47,7 @@ export default function Contact() {
             </a>
 
             {/* Add your LinkedIn URL below */}
-            {/* <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener noreferrer"
+            {/* <a href="www.linkedin.com/in/nmswainston" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm opacity-80 hover:opacity-100 transition-opacity group">
               <span className="w-8 h-8 rounded-full border border-(--line) flex items-center justify-center flex-shrink-0 group-hover:border-(--accent) transition-colors">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -55,7 +55,7 @@ export default function Contact() {
                   <circle cx="4" cy="4" r="2"/>
                 </svg>
               </span>
-              linkedin.com/in/YOUR_HANDLE
+              www.linkedin.com/in/nmswainston
             </a> */}
           </div>
         </div>
