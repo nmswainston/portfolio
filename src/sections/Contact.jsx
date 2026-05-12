@@ -86,6 +86,17 @@ export default function Contact() {
           Send
         </button>
       </form>
+
+      <div className="mt-8 pt-6 border-t border-(--line)">
+        <p className="text-sm opacity-70 mb-3">Prefer a PDF? Grab my résumé directly.</p>
+        <a
+          href="/resume.pdf"
+          download="Nicholas_Swainston_Resume.pdf"
+          className="btn btn-ghost"
+        >
+          Download résumé
+        </a>
+      </div>
     </Section>
   );
 }

@@ -39,6 +39,14 @@ export default function WorkShowcase() {
                 build clean UIs, wire them to real data and tools, and use
                 automation or AI when it actually makes people&apos;s lives easier.
               </p>
+
+              <a
+                href="/resume.pdf"
+                download="Nicholas_Swainston_Resume.pdf"
+                className="btn self-start"
+              >
+                Download résumé
+              </a>
             </div>
 
             {/* Right column - Selected Work */}
