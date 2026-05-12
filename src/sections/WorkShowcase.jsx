@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import TagBadge from "../components/TagBadge.jsx";
 import TechScroller from "../components/TechScroller.jsx";
+import profilePhoto from "../assets/profile.jpg";
 import { projects } from "./projectsData.js";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
@@ -12,24 +13,39 @@ export default function WorkShowcase() {
 
       {/* Intro — full viewport height */}
       <div className="flex flex-col justify-between" style={{ minHeight: "calc(100vh - 64px)" }}>
-        <div className="pt-10 md:pt-20 max-w-2xl">
-          <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
-            Portfolio · Frontend · Automation
-          </p>
-          <h1
-            id="hero-heading"
-            className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
-          >
-            Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
-          </h1>
-          <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-xl">
-            I like connecting the dots between design and implementation. I build
-            clean UIs, wire them to real data and tools, and use automation or AI
-            when it actually makes people&apos;s lives easier.
-          </p>
-          <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
-            Download Resume
-          </a>
+        <div className="pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Text */}
+          <div>
+            <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
+              Portfolio · Frontend · Automation
+            </p>
+            <h1
+              id="hero-heading"
+              className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
+            >
+              Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
+            </h1>
+            <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6">
+              I like connecting the dots between design and implementation. I build
+              clean UIs, wire them to real data and tools, and use automation or AI
+              when it actually makes people&apos;s lives easier.
+            </p>
+            <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
+              Download Resume
+            </a>
+          </div>
+
+          {/* Photo */}
+          <div className="flex justify-center md:justify-end">
+            <div className="relative w-64 md:w-72 lg:w-80">
+              <img
+                src={profilePhoto}
+                alt="Nick Swainston"
+                className="w-full aspect-[3/4] object-cover object-top rounded-2xl border border-(--line)"
+                style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.25)" }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Tech scroller */}
