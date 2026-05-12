@@ -9,7 +9,13 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
-  // Scroll to top when case study route changes
+  useEffect(() => {
+    document.title = project
+      ? `${project.title} — Nick Swainston`
+      : "Project — Nick Swainston";
+    return () => { document.title = "Nick Swainston — Portfolio"; };
+  }, [slug, project]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [slug]);

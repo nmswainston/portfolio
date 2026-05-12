@@ -28,8 +28,12 @@ export default function CaseStudyLayout({ project, children }) {
 
   const mockupType = project.detailMockupType || "laptop";
   const hasVisual = project.image;
-  const liveUrl = project.liveUrl || project.live || project.link;
-  const repoUrl = project.repoUrl || project.repo;
+  const liveUrl = project.liveUrl;
+  const repoUrl = project.repoUrl;
+
+  const currentIndex = projects.findIndex((p) => p.slug === project.slug);
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
     <main className="section">
@@ -91,7 +95,8 @@ export default function CaseStudyLayout({ project, children }) {
                     type={mockupType}
                     alt={project.title}
                     image={project.image}
-                    className="case-study-mockup w-full"
+                    fullWidth
+                    className="case-study-mockup"
                   />
                 </div>
               </div>
@@ -136,46 +141,35 @@ export default function CaseStudyLayout({ project, children }) {
 
           {/* Project Navigation - Prev/Next */}
           <nav className="case-study-project-nav" aria-label="Project navigation">
-            {(() => {
-              const currentIndex = projects.findIndex((p) => p.slug === project.slug);
-              const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
-              const nextProject =
-                currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+            {prevProject ? (
+              <Link
+                to={`/work/${prevProject.slug}`}
+                className="case-study-nav-link case-study-nav-link--prev"
+              >
+                <span className="case-study-nav-arrow">←</span>
+                <span className="case-study-nav-label">
+                  <span className="case-study-nav-label-text">Previous</span>
+                  <span className="case-study-nav-project-name">{prevProject.title}</span>
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
 
-              return (
-                <>
-                  {prevProject ? (
-                    <Link
-                      to={`/work/${prevProject.slug}`}
-                      className="case-study-nav-link case-study-nav-link--prev"
-                    >
-                      <span className="case-study-nav-arrow">←</span>
-                      <span className="case-study-nav-label">
-                        <span className="case-study-nav-label-text">Previous</span>
-                        <span className="case-study-nav-project-name">{prevProject.title}</span>
-                      </span>
-                    </Link>
-                  ) : (
-                    <div></div>
-                  )}
-
-                  {nextProject ? (
-                    <Link
-                      to={`/work/${nextProject.slug}`}
-                      className="case-study-nav-link case-study-nav-link--next"
-                    >
-                      <span className="case-study-nav-arrow">→</span>
-                      <span className="case-study-nav-label">
-                        <span className="case-study-nav-label-text">Next</span>
-                        <span className="case-study-nav-project-name">{nextProject.title}</span>
-                      </span>
-                    </Link>
-                  ) : (
-                    <div></div>
-                  )}
-                </>
-              );
-            })()}
+            {nextProject ? (
+              <Link
+                to={`/work/${nextProject.slug}`}
+                className="case-study-nav-link case-study-nav-link--next"
+              >
+                <span className="case-study-nav-arrow">→</span>
+                <span className="case-study-nav-label">
+                  <span className="case-study-nav-label-text">Next</span>
+                  <span className="case-study-nav-project-name">{nextProject.title}</span>
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
           </nav>
         </div>
       </article>

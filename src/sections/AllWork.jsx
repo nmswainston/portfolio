@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import { projects } from "./projectsData.js";
 
 export default function AllWork() {
+  useEffect(() => {
+    document.title = "All Work — Nick Swainston";
+    return () => { document.title = "Nick Swainston — Portfolio"; };
+  }, []);
   const featuredProjects = projects.filter((p) => p.featured);
   const additionalProjects = projects.filter((p) => !p.featured);
 
@@ -51,7 +56,7 @@ export default function AllWork() {
                             type="laptop"
                             alt={project.title}
                             image={project.image}
-                            className="w-full transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:drop-shadow-md"
+                            className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:drop-shadow-md"
                           />
                         </div>
                       </div>
@@ -133,7 +138,8 @@ export default function AllWork() {
                               type="laptop"
                               alt={project.title}
                               image={project.image}
-                              className="w-full transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:drop-shadow-md"
+                              fullWidth
+                              className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:drop-shadow-md"
                             />
                           </div>
                         </div>
