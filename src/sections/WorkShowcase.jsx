@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import TagBadge from "../components/TagBadge.jsx";
+import TechScroller from "../components/TechScroller.jsx";
 import { projects } from "./projectsData.js";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
@@ -29,6 +30,14 @@ export default function WorkShowcase() {
           <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
             Download Resume
           </a>
+        </div>
+
+        {/* Tech scroller */}
+        <div className="pb-4">
+          <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-40 mb-5">
+            Working with modern technologies
+          </p>
+          <TechScroller />
         </div>
 
         {/* Scroll indicator */}
