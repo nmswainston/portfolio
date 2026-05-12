@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header.jsx";
@@ -11,8 +12,13 @@ import About from "./sections/About.jsx";
 import WhatLookingFor from "./sections/WhatLookingFor.jsx";
 import Contact from "./sections/Contact.jsx";
 import ProjectDetail from "./sections/ProjectDetail.jsx";
+import NotFound from "./sections/NotFound.jsx";
 
 function HomePage() {
+  useEffect(() => {
+    document.title = "Nick Swainston — Portfolio";
+  }, []);
+
   return (
     <main id="main-content">
       <WorkShowcase />
@@ -39,6 +45,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/work" element={<AllWork />} />
           <Route path="/work/:slug" element={<ProjectDetail />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
 

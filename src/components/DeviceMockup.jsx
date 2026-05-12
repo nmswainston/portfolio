@@ -7,14 +7,14 @@ export default function DeviceMockup({
   image,
   alt,
   className = "",
+  fullWidth = false,
 }) {
   const isPhone = type === "phone";
   const frameSrc = isPhone ? phoneFrame : laptopFrame;
-  const shouldScaleFull = className.includes("w-full");
-  const frameWidthClass = isPhone 
-    ? "w-[120px] h-auto max-w-full" 
-    : shouldScaleFull 
-      ? "w-full h-auto max-w-full" 
+  const frameWidthClass = isPhone
+    ? "w-[120px] h-auto max-w-full"
+    : fullWidth
+      ? "w-full h-auto max-w-full"
       : "w-[260px] h-auto max-w-full";
 
   return (
