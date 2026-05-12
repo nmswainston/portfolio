@@ -9,25 +9,35 @@ export default function WorkShowcase() {
   return (
     <section id="hero" className="section container" aria-labelledby="hero-heading">
 
-      {/* Intro */}
-      <div className="pt-10 md:pt-14 pb-12 md:pb-16 max-w-2xl">
-        <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
-          Portfolio · Frontend · Automation
-        </p>
-        <h1
-          id="hero-heading"
-          className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
-        >
-          Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
-        </h1>
-        <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-xl">
-          I like connecting the dots between design and implementation. I build
-          clean UIs, wire them to real data and tools, and use automation or AI
-          when it actually makes people&apos;s lives easier.
-        </p>
-        <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
-          Download résumé
-        </a>
+      {/* Intro — full viewport height */}
+      <div className="flex flex-col justify-between" style={{ minHeight: "calc(100vh - 64px)" }}>
+        <div className="pt-10 md:pt-20 max-w-2xl">
+          <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
+            Portfolio · Frontend · Automation
+          </p>
+          <h1
+            id="hero-heading"
+            className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
+          >
+            Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
+          </h1>
+          <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-xl">
+            I like connecting the dots between design and implementation. I build
+            clean UIs, wire them to real data and tools, and use automation or AI
+            when it actually makes people&apos;s lives easier.
+          </p>
+          <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn self-start">
+            Download Resume
+          </a>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="pb-8 flex flex-col items-start gap-2 opacity-40">
+          <span className="text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 animate-bounce" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </div>
       </div>
 
       {/* Selected Work */}
