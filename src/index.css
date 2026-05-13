@@ -28,13 +28,13 @@
 
 /* Light theme */
 :root[data-theme="light"] {
-  --bg: #F7F9FC;
+  --bg: #E8EBF0;
   --fg: #0B1220;
-  --card: #FFFFFF;
-  --line: #D6DEE9;
+  --card: #F4F6FA;
+  --line: #CDD4DF;
   --accent: #2563EB;
   --muted: #4B5565;
-  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
 }
 
 /* Dark theme */
@@ -147,6 +147,11 @@ a {
   color: #ffffff;
 }
 
+/* Ghost button must keep foreground color in light mode — the .btn rule above would override it to white */
+:root[data-theme="light"] .btn-ghost {
+  color: var(--fg);
+}
+
 .btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
@@ -214,6 +219,13 @@ select:focus-visible {
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* Light mode contrast fixes */
+/* link-text accent color has sufficient contrast at full opacity in light mode */
+:root[data-theme="light"] .link-text { opacity: 1; }
+/* Raise low-opacity label text to meet WCAG AA contrast on light backgrounds */
+:root[data-theme="light"] .opacity-40 { opacity: 0.65; }
+:root[data-theme="light"] .opacity-55 { opacity: 0.7; }
 
 /* Copy text utility - improved spacing */
 .copy {
