@@ -42,7 +42,7 @@ export default function TerminalCard() {
         </Line>
 
         <Line>
-          <span className="ml-4"><Key>based</Key><Punct>: </Punct><Str>Connecticut, USA</Str><Punct>,</Punct></span>
+          <span className="ml-4"><Key>based</Key><Punct>: </Punct><Str>Avondale, AZ, USA</Str><Punct>,</Punct></span>
         </Line>
 
         <Line>
