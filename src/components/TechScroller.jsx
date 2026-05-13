@@ -6,7 +6,7 @@ const TECHS = [
   { name: "Vite",         icon: "https://cdn.simpleicons.org/vite" },
   { name: "Next.js",      icon: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
   { name: "HTML5",        icon: "https://cdn.simpleicons.org/html5" },
-  { name: "CSS3",         icon: "https://cdn.simpleicons.org/css3" },
+  { name: "CSS3",         icon: "https://cdn.simpleicons.org/css" },
   { name: "Git",          icon: "https://cdn.simpleicons.org/git" },
   { name: "Netlify",      icon: "https://cdn.simpleicons.org/netlify" },
   { name: "Firebase",     icon: "https://cdn.simpleicons.org/firebase" },

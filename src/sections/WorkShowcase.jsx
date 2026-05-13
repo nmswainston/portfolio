@@ -35,7 +35,7 @@ export default function WorkShowcase() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/work" className="btn">View My Work →</Link>
-              <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn btn-ghost">
+              <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn">
                 Download Resume
               </a>
             </div>
@@ -63,17 +63,18 @@ export default function WorkShowcase() {
           <h2 id="work-heading" className="text-2xl md:text-3xl font-semibold">
             Selected Work
           </h2>
-          <Link to="/work" className="link-text text-sm">
+          <Link to="/work" className="btn" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>
             View all →
           </Link>
         </div>
         <div className="h-px w-12 bg-(--line) mb-12" />
 
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-6">
           {featuredProjects.map((project, index) => (
             <article
               key={project.slug}
-              className="py-16 border-t border-(--line) first:border-t-0 first:pt-0"
+              className="rounded-2xl border border-(--line) bg-(--card) p-8 lg:p-12"
+              style={{ boxShadow: "var(--shadow)" }}
               aria-label={project.title}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -155,8 +156,8 @@ export default function WorkShowcase() {
           ))}
         </div>
 
-        <div className="mt-12 pb-8 border-t border-(--line) pt-8">
-          <Link to="/work" className="link-text">
+        <div className="mt-12 pt-8 border-t border-(--line) flex">
+          <Link to="/work" className="btn">
             View all work →
           </Link>
         </div>
