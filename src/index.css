@@ -751,6 +751,45 @@ h2 {
   animation: blink 1.1s step-end infinite;
 }
 
+/* Terminal card easter egg animations */
+@keyframes terminal-close-out {
+  from { transform: scale(1);         opacity: 1; }
+  to   { transform: scale(0.85) translateY(8px); opacity: 0; }
+}
+
+@keyframes terminal-minimize-out {
+  from { transform: scaleY(1) translateY(0);  opacity: 1; }
+  to   { transform: scaleY(0.3) translateY(16px); opacity: 0; }
+}
+
+@keyframes terminal-photo-in {
+  from { transform: scale(0.96); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.terminal-exit-close {
+  animation: terminal-close-out 0.2s ease forwards;
+  pointer-events: none;
+}
+
+.terminal-exit-minimize {
+  animation: terminal-minimize-out 0.2s ease forwards;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+
+.terminal-photo-reveal {
+  animation: terminal-photo-in 0.3s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-exit-close,
+  .terminal-exit-minimize,
+  .terminal-photo-reveal {
+    animation: none;
+  }
+}
+
 /* Tech scroller marquee */
 @keyframes marquee {
   from { transform: translateX(0); }

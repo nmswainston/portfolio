@@ -16,8 +16,8 @@ export default function AllWork() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   useEffect(() => {
-    document.title = "All Work — Nick Swainston";
-    return () => { document.title = "Nick Swainston — Portfolio"; };
+    document.title = "All Work | Nick Swainston";
+    return () => { document.title = "Nick Swainston | Portfolio"; };
   }, []);
 
   const filtered = activeFilter === "All"

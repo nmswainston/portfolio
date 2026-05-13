@@ -17,7 +17,7 @@ import BackToTop from "./components/BackToTop.jsx";
 
 function HomePage() {
   useEffect(() => {
-    document.title = "Nick Swainston — Portfolio";
+    document.title = "Nick Swainston | Portfolio";
   }, []);
 
   return (
