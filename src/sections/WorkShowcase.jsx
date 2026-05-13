@@ -2,15 +2,8 @@ import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import TagBadge from "../components/TagBadge.jsx";
 import TerminalCard from "../components/TerminalCard.jsx";
+import TechScroller from "../components/TechScroller.jsx";
 import { projects } from "./projectsData.js";
-
-const HERO_TECHS = [
-  { name: "React",        icon: "https://cdn.simpleicons.org/react" },
-  { name: "TypeScript",   icon: "https://cdn.simpleicons.org/typescript" },
-  { name: "JavaScript",   icon: "https://cdn.simpleicons.org/javascript" },
-  { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
-  { name: "Vite",         icon: "https://cdn.simpleicons.org/vite" },
-];
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
@@ -49,25 +42,13 @@ export default function WorkShowcase() {
             </div>
           </div>
 
-          {/* Tech icons */}
+          {/* Tech carousel */}
           <div>
             <div className="h-px w-full bg-(--line) mb-5" />
             <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-40 mb-5">
               Working with modern technologies
             </p>
-            <div className="flex items-center gap-6">
-              {HERO_TECHS.map((tech) => (
-                <img
-                  key={tech.name}
-                  src={tech.icon}
-                  alt={tech.name}
-                  width={36}
-                  height={36}
-                  loading="lazy"
-                  title={tech.name}
-                />
-              ))}
-            </div>
+            <TechScroller />
           </div>
         </div>
 
