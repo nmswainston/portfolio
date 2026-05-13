@@ -11,9 +11,9 @@ export default function ProjectDetail() {
 
   useEffect(() => {
     document.title = project
-      ? `${project.title} — Nick Swainston`
-      : "Project — Nick Swainston";
-    return () => { document.title = "Nick Swainston — Portfolio"; };
+      ? `${project.title} | Nick Swainston`
+      : "Project | Nick Swainston";
+    return () => { document.title = "Nick Swainston | Portfolio"; };
   }, [slug, project]);
 
   useEffect(() => {

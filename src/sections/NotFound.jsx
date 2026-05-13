@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function NotFound() {
   useEffect(() => {
-    document.title = "Page Not Found — Nick Swainston";
-    return () => { document.title = "Nick Swainston — Portfolio"; };
+    document.title = "Page Not Found | Nick Swainston";
+    return () => { document.title = "Nick Swainston | Portfolio"; };
   }, []);
 
   return (
