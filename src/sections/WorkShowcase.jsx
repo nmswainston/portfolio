@@ -13,8 +13,7 @@ export default function WorkShowcase() {
 
       {/* Hero — full viewport height, vertically centered */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
-        style={{ minHeight: "calc(100vh - 64px)" }}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center lg:min-h-[calc(100vh-64px)]"
       >
         {/* Left column */}
         <div className="flex flex-col gap-10 py-12 lg:py-0">

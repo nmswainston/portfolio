@@ -121,34 +121,35 @@ export default function Header() {
             <a href="/#contact" className="btn" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>
               Let&apos;s Talk
             </a>
-
-            <ThemeToggle />
           </nav>
 
-          {/* Hamburger Button - visible on mobile only */}
-          <button
-            ref={buttonRef}
-            onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMenuOpen}
-            className="mobile-menu-toggle"
-          >
-            <span
-              className={`mobile-menu-line ${
-                isMenuOpen ? "mobile-menu-line--open-1" : ""
-              }`}
-            />
-            <span
-              className={`mobile-menu-line ${
-                isMenuOpen ? "mobile-menu-line--open-2" : ""
-              }`}
-            />
-            <span
-              className={`mobile-menu-line ${
-                isMenuOpen ? "mobile-menu-line--open-3" : ""
-              }`}
-            />
-          </button>
+          {/* Right controls — ThemeToggle always visible; hamburger only on mobile */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              ref={buttonRef}
+              onClick={toggleMenu}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
+              className="mobile-menu-toggle"
+            >
+              <span
+                className={`mobile-menu-line ${
+                  isMenuOpen ? "mobile-menu-line--open-1" : ""
+                }`}
+              />
+              <span
+                className={`mobile-menu-line ${
+                  isMenuOpen ? "mobile-menu-line--open-2" : ""
+                }`}
+              />
+              <span
+                className={`mobile-menu-line ${
+                  isMenuOpen ? "mobile-menu-line--open-3" : ""
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -192,6 +193,13 @@ export default function Header() {
               </a>
             </>
           )}
+          <a
+            className="mobile-menu-link"
+            href="/#contact"
+            onClick={handleLinkClick}
+          >
+            Let&apos;s Talk
+          </a>
           <a
             className="mobile-menu-link"
             href="https://github.com/nmswainston"
