@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import DeviceMockup from "../components/DeviceMockup.jsx";
 import TagBadge from "../components/TagBadge.jsx";
-import profilePhoto from "../assets/profile.jpg";
+import TerminalCard from "../components/TerminalCard.jsx";
 import { projects } from "./projectsData.js";
 
 const HERO_TECHS = [
@@ -71,14 +71,9 @@ export default function WorkShowcase() {
           </div>
         </div>
 
-        {/* Right column — photo */}
+        {/* Right column — terminal */}
         <div className="flex justify-center lg:justify-end">
-          <img
-            src={profilePhoto}
-            alt="Nick Swainston"
-            className="w-full max-w-sm lg:max-w-md aspect-[3/4] object-cover object-top rounded-2xl border border-(--line)"
-            style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}
-          />
+          <TerminalCard />
         </div>
       </div>
 
