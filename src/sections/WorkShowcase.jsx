@@ -72,7 +72,7 @@ export default function WorkShowcase() {
         </div>
 
         {/* Right column — terminal */}
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex justify-center">
           <TerminalCard />
         </div>
       </div>
