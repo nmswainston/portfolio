@@ -1,54 +1,50 @@
 # Portfolio
 
-Personal developer portfolio site for Nick Swainston — showcasing projects, skills, and work.
+A personal developer portfolio showcasing projects, skills, and work.
 
-## Overview
+## Problem
 
-A fast, lightweight portfolio site built with Vite and deployed on Netlify. Designed to present projects and professional background in a clean, performant way.
+As a developer, having a polished online presence is essential — but most portfolio templates are bloated or don't reflect real technical ability.
+
+## Solution
+
+Built a fast, lightweight portfolio from scratch using Vite, delivering a clean and performant experience that puts the projects front and center.
+
+## Screenshots
+
+> *Add 2–4 screenshots here*
 
 ## Tech Stack
 
 - JavaScript
 - Vite
-- Netlify (deployment)
-- ESLint
+- Netlify
 
-## Getting Started
+## Features
 
-### Prerequisites
+- Fast static site with optimized build output
+- Project showcase with descriptions and links
+- Netlify deployment with CI/CD on push to main
+- Responsive design across all screen sizes
 
-- Node.js 18+
-- npm
-
-### Installation
+## Installation
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-### Build
+## Lessons Learned
 
-```bash
-npm run build
-```
+- Vite's build pipeline is significantly faster than webpack-based setups for small projects
+- Keeping a portfolio lean and focused makes a stronger impression than feature-heavy alternatives
+- Deploying to Netlify with a `netlify.toml` config makes CI/CD almost effortless
 
-## Project Structure
+## Future Improvements
 
-```
-src/         # Source code (components, styles, pages)
-public/      # Static assets
-scripts/     # Build/utility scripts
-```
-
-## Deployment
-
-Deployed automatically to Netlify on push to `main`. Configuration in `netlify.toml`.
+- Add a blog or writing section
+- Include case study write-ups for each project
+- Add subtle scroll animations
 
 ---
 
