@@ -26,7 +26,7 @@ export default function WorkShowcase() {
               id="hero-heading"
               className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4"
             >
-              Hello!<br />I&apos;m Nick<br />I&apos;m a Developer.
+              Hi, I&apos;m Nick.<br />I build clean frontends<br />and practical automation.
             </h1>
             <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-md">
               I like connecting the dots between design and implementation. I build
@@ -107,32 +107,12 @@ export default function WorkShowcase() {
                     </div>
                   )}
 
+                  {/* Teaser only: the full Goal/Process/Result lives on the case study page */}
                   {project.description && (
-                    <p className="text-[0.9375rem] leading-relaxed opacity-85 mb-6">
+                    <p className="text-[0.9375rem] leading-relaxed opacity-85 mb-8">
                       {project.description}
                     </p>
                   )}
-
-                  <div className="flex flex-col gap-5 mb-8">
-                    {project.goal && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Goal</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.goal}</p>
-                      </div>
-                    )}
-                    {project.process && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Process</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.process}</p>
-                      </div>
-                    )}
-                    {project.result && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Result</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.result}</p>
-                      </div>
-                    )}
-                  </div>
 
                   <div className="flex flex-wrap gap-3">
                     <Link to={`/work/${project.slug}`} className="btn">

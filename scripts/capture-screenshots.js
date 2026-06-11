@@ -78,6 +78,7 @@ async function main() {
   }
   
   console.log('\n✓ All screenshots captured!');
+  console.log('Next: run "npm run optimize-images" to convert them to WebP for the site.');
 }
 
 main().catch(console.error);

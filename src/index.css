@@ -446,6 +446,8 @@ select:focus-visible {
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
+  /* visibility keeps the closed menu's links out of the tab order */
+  visibility: hidden;
   transition: all 0.2s ease-out;
 }
 
@@ -453,6 +455,7 @@ select:focus-visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-menu nav {
@@ -822,6 +825,11 @@ h2 {
   .marquee-track {
     animation: none;
   }
+}
+
+/* Monochrome brand icons (Next.js is black) flip to white in dark mode */
+:root[data-theme="dark"] .tech-icon-adaptive {
+  filter: invert(1);
 }
 
 /* Simple 2-line clamp utility if Tailwind plugin isn't available */

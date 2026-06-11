@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Contact() {
+  const [status, setStatus] = useState("idle");
+
   return (
     <section
       id="contact"
@@ -46,8 +50,7 @@ export default function Contact() {
               github.com/nmswainston
             </a>
 
-            {/* Add your LinkedIn URL below */}
-            <a href="www.linkedin.com/in/nmswainston" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/nmswainston" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm opacity-80 hover:opacity-100 transition-opacity group">
               <span className="w-8 h-8 rounded-full border border-(--line) flex items-center justify-center flex-shrink-0 group-hover:border-(--accent) transition-colors">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -55,7 +58,7 @@ export default function Contact() {
                   <circle cx="4" cy="4" r="2"/>
                 </svg>
               </span>
-              www.linkedin.com/in/nmswainston
+              linkedin.com/in/nmswainston
             </a>
           </div>
         </div>
@@ -71,17 +74,21 @@ export default function Contact() {
             onSubmit={(e) => {
               e.preventDefault();
               const form = e.target;
+              setStatus("sending");
               fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(new FormData(form)).toString(),
               })
-                .then(() => {
-                  alert("Thank you! Your message has been sent.");
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(`Form submission failed with status ${response.status}`);
+                  }
+                  setStatus("success");
                   form.reset();
                 })
                 .catch((error) => {
-                  alert("Sorry, there was an error sending your message. Please try again.");
+                  setStatus("error");
                   console.error(error);
                 });
             }}
@@ -129,9 +136,28 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn w-full justify-center py-3">
-              Send Message
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="btn w-full justify-center py-3 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p role="status" className="text-sm text-center opacity-90">
+                Thanks for reaching out! I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p role="alert" className="text-sm text-center opacity-90">
+                Something went wrong sending your message. Please try again, or
+                email me directly at{" "}
+                <a href="mailto:nmswainston@gmail.com" className="link-text">
+                  nmswainston@gmail.com
+                </a>.
+              </p>
+            )}
           </form>
         </div>
 

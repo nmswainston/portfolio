@@ -1,13 +1,14 @@
 // src/sections/projectsData.js
-// Note: Screenshot filenames must use single extensions (e.g., .png) to work with Vite imports.
-import consoleLogicShot from "../assets/projects/console-logic.png";
-import litchfieldShot from "../assets/projects/litchfield-perk.png";
-import relayShot from "../assets/projects/relay.png";
-import dwellpathShot from "../assets/projects/dwellpath.png";
-import stacys40thShot from "../assets/projects/stacys-40th.png";
-import signalOverNoiseShot from "../assets/projects/signal-over-noise.png";
-import neuralVaultShot from "../assets/projects/neural-vault.png";
-import miniSaaSShot from "../assets/projects/mini-saas-starter.png";
+// Note: Screenshot filenames must use single extensions (e.g., .webp) to work with Vite imports.
+// Screenshots are WebP, max 1200px wide. Pipeline: npm run screenshots, then npm run optimize-images.
+import consoleLogicShot from "../assets/projects/console-logic.webp";
+import litchfieldShot from "../assets/projects/litchfield-perk.webp";
+import relayShot from "../assets/projects/relay.webp";
+import dwellpathShot from "../assets/projects/dwellpath.webp";
+import stacys40thShot from "../assets/projects/stacys-40th.webp";
+import signalOverNoiseShot from "../assets/projects/signal-over-noise.webp";
+import neuralVaultShot from "../assets/projects/neural-vault.webp";
+import miniSaaSShot from "../assets/projects/mini-saas-starter.webp";
 
 export const projects = [
   // Featured Projects (show on Home and /work) - in specified order

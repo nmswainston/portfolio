@@ -16,10 +16,6 @@ export default function ProjectDetail() {
     return () => { document.title = "Nick Swainston | Portfolio"; };
   }, [slug, project]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [slug]);
-
   return (
     <CaseStudyLayout project={project}>
       {project?.goal && (

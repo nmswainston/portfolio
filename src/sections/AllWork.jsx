@@ -94,33 +94,12 @@ export default function AllWork() {
                     </div>
                   )}
 
+                  {/* Teaser only: the full Goal/Process/Result lives on the case study page */}
                   {project.description && (
-                    <p className="text-[0.9375rem] leading-relaxed opacity-85 mb-6">
+                    <p className="text-[0.9375rem] leading-relaxed opacity-85 mb-8">
                       {project.description}
                     </p>
                   )}
-
-                  {/* Case study sections — fully visible */}
-                  <div className="flex flex-col gap-5 mb-8">
-                    {project.goal && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Goal</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.goal}</p>
-                      </div>
-                    )}
-                    {project.process && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Process</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.process}</p>
-                      </div>
-                    )}
-                    {project.result && (
-                      <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold opacity-55 mb-1.5">Result</p>
-                        <p className="text-sm leading-relaxed opacity-85">{project.result}</p>
-                      </div>
-                    )}
-                  </div>
 
                   <div className="flex flex-wrap gap-3">
                     <Link to={`/work/${project.slug}`} className="btn">View case study</Link>

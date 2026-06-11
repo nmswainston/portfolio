@@ -11,6 +11,10 @@ export default function DeviceMockup({
 }) {
   const isPhone = type === "phone";
   const frameSrc = isPhone ? phoneFrame : laptopFrame;
+  // Intrinsic frame dimensions so the browser reserves space before load (avoids layout shift)
+  const frameDims = isPhone
+    ? { width: 360, height: 360 }
+    : { width: 1260, height: 756 };
   const frameWidthClass = isPhone
     ? "w-[120px] h-auto max-w-full"
     : fullWidth
@@ -28,6 +32,10 @@ export default function DeviceMockup({
         alt=""
         aria-hidden="true"
         role="presentation"
+        width={frameDims.width}
+        height={frameDims.height}
+        loading="lazy"
+        decoding="async"
         className={frameWidthClass}
       />
 
@@ -58,6 +66,8 @@ export default function DeviceMockup({
           <img
             src={image}
             alt={alt || ""}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-none"
           />
         ) : (

@@ -10,6 +10,8 @@ npm run build        # Production build → dist/
 npm run preview      # Preview production build locally
 npm run lint         # Run ESLint
 npm run screenshots  # Capture project screenshots via Puppeteer (scripts/capture-screenshots.js)
+npm run optimize-images  # Convert captured PNGs to 1200px WebP and delete the PNGs (scripts/optimize-images.js)
+npm run og-image     # Regenerate public/og-image.png social preview (scripts/generate-og-image.js)
 npm run push         # Run scripts/push.ps1 (PowerShell deploy helper)
 ```
 
@@ -32,13 +34,13 @@ Three routes defined in `App.jsx`:
 
 **`src/sections/projectsData.js`** is the single source of truth for all projects. Each entry has:
 - `slug` — URL key for `/work/:slug`
-- `featured: true/false` — controls whether it appears on the homepage (`WorkShowcase` shows the first 6 `featured` projects in order)
-- `goal`, `process`, `result` — rendered as case study sections in `ProjectDetail`
+- `featured: true/false` — controls whether it appears on the homepage (`WorkShowcase` shows the first 3 `featured` projects in order)
+- `goal`, `process`, `result` — rendered as case study sections in `ProjectDetail` only; home and `/work` cards show just `description` and tags as a teaser
 - `liveUrl` — external live link shown on cards
 - `link` — legacy alias for `liveUrl`, kept for backward compatibility
-- `image` — imported asset (must be `.png` with a single extension; Vite import requirement noted in the file)
+- `image` — imported asset (`.webp`, max 1200px wide, single extension; Vite import requirement noted in the file)
 
-To add a project, add an entry to `projectsData.js` and drop the screenshot in `src/assets/projects/`.
+To add a project: add an entry to `projectsData.js`, add its URL to `scripts/capture-screenshots.js`, then run `npm run screenshots` followed by `npm run optimize-images`.
 
 ### Styling conventions
 
