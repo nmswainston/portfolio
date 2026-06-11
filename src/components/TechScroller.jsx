@@ -4,7 +4,8 @@ const TECHS = [
   { name: "JavaScript",   icon: "https://cdn.simpleicons.org/javascript" },
   { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
   { name: "Vite",         icon: "https://cdn.simpleicons.org/vite" },
-  { name: "Next.js",      icon: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
+  // Next.js brand color is black; .tech-icon-adaptive inverts it in dark mode
+  { name: "Next.js",      icon: "https://cdn.simpleicons.org/nextdotjs", adaptive: true },
   { name: "HTML5",        icon: "https://cdn.simpleicons.org/html5" },
   { name: "CSS3",         icon: "https://cdn.simpleicons.org/css" },
   { name: "Git",          icon: "https://cdn.simpleicons.org/git" },
@@ -25,7 +26,7 @@ export default function TechScroller() {
             width={36}
             height={36}
             loading="lazy"
-            className="mx-5 flex-shrink-0"
+            className={`mx-5 flex-shrink-0${t.adaptive ? " tech-icon-adaptive" : ""}`}
           />
         ))}
         {/* Duplicate for seamless loop */}
@@ -39,7 +40,7 @@ export default function TechScroller() {
             width={36}
             height={36}
             loading="lazy"
-            className="mx-5 flex-shrink-0"
+            className={`mx-5 flex-shrink-0${t.adaptive ? " tech-icon-adaptive" : ""}`}
           />
         ))}
       </div>

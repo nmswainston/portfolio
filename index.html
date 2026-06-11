@@ -2,13 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Nick Swainston — Portfolio</title>
+    <title>Nick Swainston | Portfolio</title>
     <meta name="description" content="Web projects and case studies by Nick Swainston. Clean builds. Clear results.">
-    <meta property="og:title" content="Nick Swainston — Portfolio">
-    <meta property="og:description" content="Web projects and case studies by Nick Swainston.">
+    <link rel="canonical" href="https://nmswainston.com/">
+    <meta property="og:title" content="Nick Swainston | Portfolio">
+    <meta property="og:description" content="Web projects and case studies by Nick Swainston. Clean builds. Clear results.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://nmswainston.com/favicon.ico">
-    <meta property="og:url" content="https://nmswainston.com">
+    <meta property="og:image" content="https://nmswainston.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nick Swainston, Frontend Developer and AI Automation">
+    <meta property="og:url" content="https://nmswainston.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nick Swainston | Portfolio">
+    <meta name="twitter:description" content="Web projects and case studies by Nick Swainston. Clean builds. Clear results.">
+    <meta name="twitter:image" content="https://nmswainston.com/og-image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/favicon.ico">
@@ -30,12 +38,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Static stub so Netlify's build bot detects the contact form -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>  
 </html>
 

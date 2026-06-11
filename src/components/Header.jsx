@@ -184,21 +184,15 @@ export default function Header() {
               >
                 About
               </a>
-              <a
-                className="mobile-menu-link"
-                href="#contact"
-                onClick={handleLinkClick}
-              >
-                Contact
-              </a>
             </>
           )}
+          {/* Works from any page: full navigation home plus anchor when off the homepage */}
           <a
             className="mobile-menu-link"
             href="/#contact"
             onClick={handleLinkClick}
           >
-            Let&apos;s Talk
+            Contact
           </a>
           <a
             className="mobile-menu-link"

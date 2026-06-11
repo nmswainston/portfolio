@@ -14,6 +14,7 @@ import Contact from "./sections/Contact.jsx";
 import ProjectDetail from "./sections/ProjectDetail.jsx";
 import NotFound from "./sections/NotFound.jsx";
 import BackToTop from "./components/BackToTop.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function HomePage() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function HomePage() {
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
