@@ -23,6 +23,16 @@ export default function Contact() {
           </p>
 
           <div className="flex flex-col gap-4">
+            <p className="flex items-center gap-3 text-sm opacity-80">
+              <span className="w-8 h-8 rounded-full border border-(--line) flex items-center justify-center flex-shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              Avondale, AZ (Greater Phoenix)
+            </p>
+
             <a
               href="mailto:nmswainston@gmail.com"
               className="flex items-center gap-3 text-sm opacity-80 hover:opacity-100 transition-opacity group"

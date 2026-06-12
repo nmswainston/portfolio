@@ -37,6 +37,7 @@ Three routes defined in `App.jsx`:
 - `featured: true/false` — controls whether it appears on the homepage (`WorkShowcase` shows the first 3 `featured` projects in order)
 - `goal`, `process`, `result` — rendered as case study sections in `ProjectDetail` only; home and `/work` cards show just `description` and tags as a teaser
 - `liveUrl` — external live link shown on cards
+- `repoUrl` — public GitHub repo, rendered as "View repository" on the case study page
 - `link` — legacy alias for `liveUrl`, kept for backward compatibility
 - `image` — imported asset (`.webp`, max 1200px wide, single extension; Vite import requirement noted in the file)
 

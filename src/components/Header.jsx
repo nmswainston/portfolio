@@ -92,6 +92,14 @@ export default function Header() {
                 </a>
               </>
             )}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-pill"
+            >
+              Resume
+            </a>
 
             {/* Social icons */}
             <a
@@ -193,6 +201,15 @@ export default function Header() {
             onClick={handleLinkClick}
           >
             Contact
+          </a>
+          <a
+            className="mobile-menu-link"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleLinkClick}
+          >
+            Resume
           </a>
           <a
             className="mobile-menu-link"
