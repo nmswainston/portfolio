@@ -17,7 +17,16 @@ export default function AllWork() {
 
   useEffect(() => {
     document.title = "All Work | Nick Swainston";
-    return () => { document.title = "Nick Swainston | Portfolio"; };
+    const meta = document.querySelector('meta[name="description"]');
+    const previous = meta?.getAttribute("content");
+    meta?.setAttribute(
+      "content",
+      "All projects by Nick Swainston: case studies in React, Tailwind CSS, and AI automation."
+    );
+    return () => {
+      document.title = "Nick Swainston | Portfolio";
+      if (previous) meta?.setAttribute("content", previous);
+    };
   }, []);
 
   const filtered = activeFilter === "All"

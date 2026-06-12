@@ -19,6 +19,10 @@ export default function WorkShowcase() {
         <div className="flex flex-col gap-10 py-12 lg:py-0">
           {/* Text + CTAs */}
           <div>
+            <p className="availability-badge mb-4">
+              <span className="status-dot" aria-hidden="true" />
+              Open to opportunities
+            </p>
             <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">
               Portfolio · Frontend · Automation
             </p>

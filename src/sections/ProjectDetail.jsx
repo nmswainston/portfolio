@@ -5,6 +5,9 @@ import { projects } from "./projectsData.js";
 import CaseStudyLayout from "../components/CaseStudyLayout.jsx";
 import CaseStudySection from "../components/CaseStudySection.jsx";
 
+const DEFAULT_DESCRIPTION =
+  "Web projects and case studies by Nick Swainston. Clean builds. Clear results.";
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
@@ -13,7 +16,14 @@ export default function ProjectDetail() {
     document.title = project
       ? `${project.title} | Nick Swainston`
       : "Project | Nick Swainston";
-    return () => { document.title = "Nick Swainston | Portfolio"; };
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta && project?.description) {
+      meta.setAttribute("content", `${project.title} case study: ${project.description}`);
+    }
+    return () => {
+      document.title = "Nick Swainston | Portfolio";
+      meta?.setAttribute("content", DEFAULT_DESCRIPTION);
+    };
   }, [slug, project]);
 
   return (
