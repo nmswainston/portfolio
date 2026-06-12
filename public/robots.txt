@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /resume.pdf
 
 Sitemap: https://nmswainston.com/sitemap.xml

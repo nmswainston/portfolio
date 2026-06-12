@@ -34,19 +34,6 @@ export default function Contact() {
             </p>
 
             <a
-              href="mailto:nmswainston@gmail.com"
-              className="flex items-center gap-3 text-sm opacity-80 hover:opacity-100 transition-opacity group"
-            >
-              <span className="w-8 h-8 rounded-full border border-(--line) flex items-center justify-center flex-shrink-0 group-hover:border-(--accent) transition-colors">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="m2 7 10 7 10-7" />
-                </svg>
-              </span>
-              nmswainston@gmail.com
-            </a>
-
-            <a
               href="https://github.com/nmswainston"
               target="_blank"
               rel="noopener noreferrer"
@@ -162,9 +149,14 @@ export default function Contact() {
             {status === "error" && (
               <p role="alert" className="text-sm text-center opacity-90">
                 Something went wrong sending your message. Please try again, or
-                email me directly at{" "}
-                <a href="mailto:nmswainston@gmail.com" className="link-text">
-                  nmswainston@gmail.com
+                reach out on{" "}
+                <a
+                  href="https://www.linkedin.com/in/nmswainston"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-text"
+                >
+                  LinkedIn
                 </a>.
               </p>
             )}
