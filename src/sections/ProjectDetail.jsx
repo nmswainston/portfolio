@@ -1,30 +1,28 @@
 // src/sections/ProjectDetail.jsx
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { projects } from "./projectsData.js";
 import CaseStudyLayout from "../components/CaseStudyLayout.jsx";
 import CaseStudySection from "../components/CaseStudySection.jsx";
-
-const DEFAULT_DESCRIPTION =
-  "Web projects and case studies by Nick Swainston. Clean builds. Clear results.";
+import NotFound from "./NotFound.jsx";
+import usePageMeta from "../usePageMeta.js";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
-  useEffect(() => {
-    document.title = project
-      ? `${project.title} | Nick Swainston`
-      : "Project | Nick Swainston";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta && project?.description) {
-      meta.setAttribute("content", `${project.title} case study: ${project.description}`);
-    }
-    return () => {
-      document.title = "Nick Swainston | Portfolio";
-      meta?.setAttribute("content", DEFAULT_DESCRIPTION);
-    };
-  }, [slug, project]);
+  usePageMeta({
+    title: project ? `${project.title} | Nick Swainston` : "Page Not Found | Nick Swainston",
+    description: project
+      ? `${project.title} case study: ${project.description}`
+      : undefined,
+    path: `/work/${slug}`,
+    // Unknown slugs are a soft 404: keep them out of the index.
+    noindex: !project,
+  });
+
+  if (!project) {
+    return <NotFound />;
+  }
 
   return (
     <CaseStudyLayout project={project}>

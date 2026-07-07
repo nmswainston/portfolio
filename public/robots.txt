@@ -1,5 +1,7 @@
+# resume.pdf is deliberately not disallowed here: it is excluded from search
+# via an X-Robots-Tag: noindex header (netlify.toml), which only works if
+# crawlers are allowed to fetch it.
 User-agent: *
 Allow: /
-Disallow: /resume.pdf
 
 Sitemap: https://nmswainston.com/sitemap.xml

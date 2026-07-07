@@ -1,11 +1,11 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import usePageMeta from "../usePageMeta.js";
 
 export default function NotFound() {
-  useEffect(() => {
-    document.title = "Page Not Found | Nick Swainston";
-    return () => { document.title = "Nick Swainston | Portfolio"; };
-  }, []);
+  usePageMeta({
+    title: "Page Not Found | Nick Swainston",
+    noindex: true,
+  });
 
   return (
     <main className="section">

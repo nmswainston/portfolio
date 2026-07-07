@@ -36,10 +36,13 @@ export default function TerminalCard() {
   return (
     <div className="w-full max-w-sm lg:max-w-md">
       {mode === "photo" ? (
-        <div
-          className="terminal-photo-reveal cursor-pointer"
+        <button
+          type="button"
+          className="terminal-photo-reveal cursor-pointer block w-full"
           onClick={() => setMode("terminal")}
+          aria-label="Reopen terminal card"
           title="Click to reopen"
+          style={{ background: "none", border: 0, padding: 0 }}
         >
           <img
             src={nickPhoto}
@@ -48,7 +51,7 @@ export default function TerminalCard() {
             style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.4)" }}
           />
           <p className="text-center text-xs opacity-40 mt-3 font-mono">click to reopen</p>
-        </div>
+        </button>
       ) : (
         <div
           className={`rounded-2xl overflow-hidden border border-slate-700/60${exitAnim === "close" ? " terminal-exit-close" : exitAnim === "minimize" ? " terminal-exit-minimize" : ""}`}

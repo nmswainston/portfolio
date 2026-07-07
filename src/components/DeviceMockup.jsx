@@ -1,5 +1,5 @@
 // src/components/DeviceMockup.jsx
-import laptopFrame from "../assets/laptop-frame.png";
+import laptopFrame from "../assets/laptop-frame.webp";
 import phoneFrame from "../assets/phone-frame.png";
 
 export default function DeviceMockup({
@@ -8,6 +8,9 @@ export default function DeviceMockup({
   alt,
   className = "",
   fullWidth = false,
+  // Set for above-the-fold mockups (first card in a list, case study hero)
+  // so the LCP image isn't deferred by lazy loading.
+  eager = false,
 }) {
   const isPhone = type === "phone";
   const frameSrc = isPhone ? phoneFrame : laptopFrame;
@@ -34,7 +37,7 @@ export default function DeviceMockup({
         role="presentation"
         width={frameDims.width}
         height={frameDims.height}
-        loading="lazy"
+        loading={eager ? "eager" : "lazy"}
         decoding="async"
         className={frameWidthClass}
       />
@@ -66,7 +69,8 @@ export default function DeviceMockup({
           <img
             src={image}
             alt={alt || ""}
-            loading="lazy"
+            loading={eager ? "eager" : "lazy"}
+            fetchPriority={eager ? "high" : undefined}
             decoding="async"
             className="w-full h-full object-cover rounded-none"
           />

@@ -4,7 +4,7 @@ export default function About() {
   return (
     <Section id="about" title="About">
       <p className="copy">
-        I've spent years working in home automation and AV – building and
+        I've spent years working in home automation and AV - building and
         supporting smart homes, networks, and systems where things just have to
         work. That mix of tech, troubleshooting, and working with real people is
         what pulled me into frontend development.

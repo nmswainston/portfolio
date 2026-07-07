@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import usePageMeta from "./usePageMeta.js";
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -17,9 +17,7 @@ import BackToTop from "./components/BackToTop.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function HomePage() {
-  useEffect(() => {
-    document.title = "Nick Swainston | Portfolio";
-  }, []);
+  usePageMeta({ path: "/" });
 
   return (
     <main id="main-content">
