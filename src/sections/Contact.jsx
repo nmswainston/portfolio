@@ -88,7 +88,7 @@ export default function Contact() {
           >
             <input type="hidden" name="form-name" value="contact" />
             <p className="hidden">
-              <label>Don&apos;t fill this out if you&apos;re human: <input name="bot-field" /></label>
+              <label>Don&apos;t fill this out if you&apos;re human: <input name="bot-field" autoComplete="off" /></label>
             </p>
 
             <div className="grid gap-1.5">
@@ -124,6 +124,7 @@ export default function Contact() {
                 name="message"
                 rows={5}
                 required
+                autoComplete="off"
                 placeholder="Tell me a bit about what you're looking for."
                 className="rounded-lg border border-(--line) bg-(--card) px-4 py-2.5 text-sm focus:outline-none focus:border-(--accent) transition-colors resize-none"
               />
