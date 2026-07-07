@@ -61,9 +61,15 @@ for (const route of routes) {
     .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${title}$2`)
     .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${description}$2`);
 
-  const outDir = join(distDir, ...route.path.split('/').filter(Boolean));
+  // Write flat files (work.html, work/relay.html) rather than directory
+  // index files (work/relay/index.html). Netlify serves /work/relay from
+  // work/relay.html with a 200; the directory form triggers a 301 to the
+  // trailing-slash URL, which would make every canonical point at a redirect.
+  const segments = route.path.split('/').filter(Boolean);
+  const fileName = `${segments.pop()}.html`;
+  const outDir = join(distDir, ...segments);
   mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, 'index.html'), html);
+  writeFileSync(join(outDir, fileName), html);
 }
 
 console.log(`prerender: wrote ${routes.length} route pages (${projects.length} projects + /work)`);
