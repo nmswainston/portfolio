@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev          # Start Vite dev server
-npm run build        # Production build → dist/
+npm run build        # Production build → dist/, then scripts/prerender.js bakes per-route meta into static HTML
 npm run preview      # Preview production build locally
 npm run lint         # Run ESLint
 npm run screenshots  # Capture project screenshots via Puppeteer (scripts/capture-screenshots.js)
@@ -29,6 +29,12 @@ Three routes defined in `App.jsx`:
 - `/` → `HomePage` (renders `WorkShowcase`, `HowIWork`, `SkillsFocus`, `About`, `WhatLookingFor`, `Contact` in sequence)
 - `/work` → `AllWork`
 - `/work/:slug` → `ProjectDetail`
+
+### SEO and page meta
+
+Every routed page calls `usePageMeta` (`src/usePageMeta.js`) to keep title, description, canonical, and og/twitter meta in sync during client-side navigation. `scripts/prerender.js` (runs automatically as part of `npm run build`) writes per-route copies of `dist/index.html` with the same meta baked in for crawlers that don't execute JavaScript. It extracts `slug`, `title`, and `description` from `projectsData.js` with a regex, so keep those fields in that order within each project entry. When adding a route, wire it into both.
+
+`/resume.pdf` is kept out of search results via an `X-Robots-Tag: noindex` header in `netlify.toml` (not robots.txt `Disallow`, which would block crawlers from ever seeing the header).
 
 ### Project data
 
@@ -56,6 +62,8 @@ To add a project: add an entry to `projectsData.js`, add its URL to `scripts/cap
 
 - `CaseStudyLayout.jsx` — wraps case study pages; handles hero, prev/next navigation, back link, and live URL CTA. Pass the full `project` object.
 - `CaseStudySection.jsx` — renders a single titled section (`goal`/`process`/`result`) within a case study.
-- `DeviceMockup.jsx` — renders a laptop or phone frame around a project screenshot. Takes `type`, `image`, `alt`.
+- `DeviceMockup.jsx` — renders a laptop or phone frame around a project screenshot. Takes `type`, `image`, `alt`, and `eager` (set for above-the-fold mockups so the LCP image isn't lazy-loaded).
+- `ProjectCard.jsx` — shared card body for project listings on the homepage and `/work`. Takes `project`, `index` (side alternation), `headingLevel`, `label`, `eager`. The caller owns the `<article>` wrapper.
+- `SocialIcons.jsx` — shared `GitHubIcon` / `LinkedInIcon` glyphs used by `Header` and `Contact`.
 - `Card.jsx` — generic card with optional `title` and `actions`.
 - `Section.jsx` — thin wrapper that applies `.section .container` classes.

@@ -95,6 +95,7 @@ export default function CaseStudyLayout({ project, children }) {
                     alt={project.title}
                     image={project.image}
                     fullWidth
+                    eager
                     className="case-study-mockup"
                   />
                 </div>

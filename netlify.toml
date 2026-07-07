@@ -9,3 +9,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Keep the resume out of search results. Crawling must stay allowed in
+# robots.txt for this header to be seen and honored.
+[[headers]]
+  for = "/resume.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
