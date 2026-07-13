@@ -4,7 +4,7 @@ export default function SkillsFocus() {
   return (
     <Section id="skills-focus" title="Skills & Focus">
       <div className="mt-4 space-y-6">
-        <div>
+        <div data-reveal="0">
           <h3 className="text-sm font-semibold mb-2 opacity-90">Frontend</h3>
           <div className="flex flex-wrap gap-2">
             <span className="tag">React</span>
@@ -14,7 +14,7 @@ export default function SkillsFocus() {
           </div>
         </div>
 
-        <div>
+        <div data-reveal="1">
           <h3 className="text-sm font-semibold mb-2 opacity-90">Tooling</h3>
           <div className="flex flex-wrap gap-2">
             <span className="tag">Vite</span>
@@ -24,7 +24,7 @@ export default function SkillsFocus() {
           </div>
         </div>
 
-        <div>
+        <div data-reveal="2">
           <h3 className="text-sm font-semibold mb-2 opacity-90">Automation</h3>
           <div className="flex flex-wrap gap-2">
             <span className="tag">API integrations</span>

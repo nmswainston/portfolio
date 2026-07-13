@@ -62,7 +62,7 @@ export default function WorkShowcase() {
 
       {/* Selected Work */}
       <div>
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-2" data-reveal>
           <h2 id="work-heading" className="text-2xl md:text-3xl font-semibold">
             Selected Work
           </h2>
@@ -74,18 +74,21 @@ export default function WorkShowcase() {
 
         <div className="flex flex-col gap-6">
           {featuredProjects.map((project, index) => (
-            <article
-              key={project.slug}
-              className="rounded-2xl border border-(--line) bg-(--card) p-8 lg:p-12"
-              style={{ boxShadow: "var(--shadow)" }}
-              aria-label={project.title}
-            >
-              <ProjectCard project={project} index={index} headingLevel="h3" />
-            </article>
+            // Reveal lives on the wrapper so its transform doesn't fight
+            // the .work-card hover lift on the article itself
+            <div key={project.slug} data-reveal>
+              <article
+                className="work-card rounded-2xl border border-(--line) bg-(--card) p-8 lg:p-12"
+                style={{ boxShadow: "var(--shadow)" }}
+                aria-label={project.title}
+              >
+                <ProjectCard project={project} index={index} headingLevel="h3" />
+              </article>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-(--line) flex">
+        <div className="mt-12 pt-8 border-t border-(--line) flex" data-reveal>
           <Link to="/work" className="btn">
             View all work →
           </Link>

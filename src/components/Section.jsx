@@ -10,11 +10,11 @@ export default function Section({ id, title, hint, children }) {
       {...(headingId ? { "aria-labelledby": headingId } : {})}
     >
       {title && (
-        <h2 id={headingId} className="section-title">
+        <h2 id={headingId} className="section-title" data-reveal>
           {title}
         </h2>
       )}
-      {hint && <p className="hint">{hint}</p>}
+      {hint && <p className="hint" data-reveal="1">{hint}</p>}
       {children}
     </section>
   );

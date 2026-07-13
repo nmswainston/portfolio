@@ -15,6 +15,7 @@ import ProjectDetail from "./sections/ProjectDetail.jsx";
 import NotFound from "./sections/NotFound.jsx";
 import BackToTop from "./components/BackToTop.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import RevealOnScroll from "./components/RevealOnScroll.jsx";
 
 function HomePage() {
   usePageMeta({ path: "/" });
@@ -35,6 +36,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
+      <RevealOnScroll />
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>

@@ -7,8 +7,17 @@ export default function Header() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+
+  // Depth cue: header casts a shadow once content scrolls beneath it
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -60,7 +69,7 @@ export default function Header() {
   };
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}>
       <div className="container">
         <div className="header-inner">
           {/* Left: Brand cluster */}

@@ -50,7 +50,7 @@ export default function CaseStudyLayout({ project, children }) {
 
           {/* Hero Section - 2 Column Layout */}
           <header className="case-study-hero">
-            <div className="case-study-hero-content">
+            <div className="case-study-hero-content hero-rise">
               {/* Label */}
               <p className="case-study-label">Case study</p>
 
@@ -88,7 +88,7 @@ export default function CaseStudyLayout({ project, children }) {
 
             {/* Visual - Right side on desktop */}
             {hasVisual && (
-              <div className="case-study-hero-visual">
+              <div className="case-study-hero-visual hero-rise hero-rise-2">
                 <div className="case-study-mockup-container w-full max-w-[640px] lg:max-w-[720px] xl:max-w-[820px] 2xl:max-w-[920px] mx-auto">
                   <DeviceMockup
                     type={mockupType}
@@ -112,7 +112,7 @@ export default function CaseStudyLayout({ project, children }) {
 
           {/* Project Links / CTAs */}
           {(liveUrl || repoUrl) && (
-            <div className="case-study-cta-section">
+            <div className="case-study-cta-section" data-reveal>
               <div className="h-px w-full bg-(--line) mb-6" />
               <div className="flex flex-wrap gap-4">
                 {liveUrl && (

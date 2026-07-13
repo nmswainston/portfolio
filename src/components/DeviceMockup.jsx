@@ -72,7 +72,7 @@ export default function DeviceMockup({
             loading={eager ? "eager" : "lazy"}
             fetchPriority={eager ? "high" : undefined}
             decoding="async"
-            className="w-full h-full object-cover rounded-none"
+            className="mockup-screenshot w-full h-full object-cover rounded-none"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-(--line)/30 via-(--line)/20 to-(--line)/10 flex items-center justify-center">

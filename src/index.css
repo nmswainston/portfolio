@@ -857,6 +857,63 @@ h2 {
   }
 }
 
+/* Scroll reveal — elements with [data-reveal] fade and rise into view.
+   Hidden only under .js-reveal (added by RevealOnScroll on mount), so
+   prerendered HTML stays visible for crawlers and no-JS visitors.
+   RevealOnScroll skips adding the class for prefers-reduced-motion. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-reveal [data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Featured work cards — lift on hover, screenshot leans in.
+   The reveal lives on a wrapper div so this transform doesn't fight
+   the [data-reveal] transform. */
+.work-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+}
+
+.mockup-screenshot {
+  transition: transform 0.5s ease;
+}
+
+.work-card:hover .mockup-screenshot,
+article[aria-label]:hover .mockup-screenshot {
+  transform: scale(1.03);
+}
+
+/* Header gains depth once the page scrolls under it */
+.site-header {
+  transition: box-shadow 0.25s ease;
+}
+
+.site-header--scrolled {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card,
+  .work-card:hover,
+  .mockup-screenshot,
+  .work-card:hover .mockup-screenshot,
+  article[aria-label]:hover .mockup-screenshot {
+    transition: none;
+    transform: none;
+  }
+}
+
 /* Hero availability badge */
 .availability-badge {
   display: inline-flex;

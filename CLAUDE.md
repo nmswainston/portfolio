@@ -65,5 +65,6 @@ To add a project: add an entry to `projectsData.js`, add its URL to `scripts/cap
 - `DeviceMockup.jsx` — renders a laptop or phone frame around a project screenshot. Takes `type`, `image`, `alt`, and `eager` (set for above-the-fold mockups so the LCP image isn't lazy-loaded).
 - `ProjectCard.jsx` — shared card body for project listings on the homepage and `/work`. Takes `project`, `index` (side alternation), `headingLevel`, `label`, `eager`. The caller owns the `<article>` wrapper.
 - `SocialIcons.jsx` — shared `GitHubIcon` / `LinkedInIcon` glyphs used by `Header` and `Contact`.
+- `RevealOnScroll.jsx` — global scroll-reveal engine mounted once in `App`. Add `data-reveal` to any element to fade/rise it into view on first intersection; the value is an optional stagger step (80ms each, e.g. `data-reveal="2"`). Content stays visible without JS (hiding is gated on a `js-reveal` class) and the whole system is skipped for `prefers-reduced-motion`. Don't combine `data-reveal` with elements that have their own hover `transform` (e.g. `.work-card`); put the attribute on a wrapper instead.
 - `Card.jsx` — generic card with optional `title` and `actions`.
 - `Section.jsx` — thin wrapper that applies `.section .container` classes.
