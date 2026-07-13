@@ -1,29 +1,122 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import nickPhoto from "../assets/nick.jpg";
 
-function Line({ children }) {
-  return <div className="leading-7">{children}</div>;
+// Syntax palette for the fake code block
+const TOKEN_STYLES = {
+  kw: "text-violet-400",
+  name: "text-white",
+  key: "text-sky-300",
+  str: "text-emerald-400",
+  punct: "text-slate-500",
+};
+
+const T = (cls, text) => ({ cls, text });
+
+// The code block as token data rather than JSX so the typing effect can
+// slice it character by character without losing syntax colors.
+// Indentation is literal spaces; the line container uses whitespace-pre.
+const CODE_LINES = [
+  [T("kw", "const"), T("name", " nick "), T("punct", "= {")],
+  [T("key", "  role"), T("punct", ": "), T("str", '"Frontend Developer"'), T("punct", ",")],
+  [T("key", "  based"), T("punct", ": "), T("str", '"Avondale, AZ, USA"'), T("punct", ",")],
+  [T("key", "  stack"), T("punct", ": [")],
+  [T("str", '    "React"'), T("punct", ",")],
+  [T("str", '    "TypeScript"'), T("punct", ",")],
+  [T("str", '    "Tailwind"')],
+  [T("punct", "  ],")],
+  [T("key", "  focus"), T("punct", ": [")],
+  [T("str", '    "Clean UI"'), T("punct", ",")],
+  [T("str", '    "Automation"'), T("punct", ",")],
+  [T("str", '    "AI"')],
+  [T("punct", "  ],")],
+  [T("key", "  status"), T("punct", ": "), T("str", '"Open to opportunities"')],
+  [T("punct", "}")],
+];
+
+const LINE_LENGTHS = CODE_LINES.map((line) =>
+  line.reduce((n, tk) => n + tk.text.length, 0)
+);
+const TOTAL_CHARS = LINE_LENGTHS.reduce((a, b) => a + b, 0);
+
+// Type once per browser session; replays on every visit felt gimmicky.
+const TYPED_FLAG = "terminal-typed";
+
+function hasTypedThisSession() {
+  try {
+    return sessionStorage.getItem(TYPED_FLAG) === "1";
+  } catch {
+    return false;
+  }
 }
 
-function Kw({ children }) {
-  return <span className="text-violet-400">{children}</span>;
+function markTyped() {
+  try {
+    sessionStorage.setItem(TYPED_FLAG, "1");
+  } catch {
+    // Private mode can block storage; worst case the animation replays.
+  }
 }
 
-function Key({ children }) {
-  return <span className="text-sky-300">{children}</span>;
+function prefersReducedMotion() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 }
 
-function Str({ children }) {
-  return <span className="text-emerald-400">&quot;{children}&quot;</span>;
-}
+/**
+ * One line of code. Untyped characters render invisibly (opacity-0) so the
+ * card keeps its final height from the first frame and nothing below it
+ * shifts while the animation runs.
+ */
+function CodeLine({ tokens, visibleChars, showCursor }) {
+  const parts = [];
+  let used = 0;
+  tokens.forEach((tk, i) => {
+    const take = Math.max(0, Math.min(tk.text.length, visibleChars - used));
+    if (take > 0) {
+      parts.push(
+        <span key={i} className={TOKEN_STYLES[tk.cls]}>
+          {tk.text.slice(0, take)}
+        </span>
+      );
+    }
+    used += tk.text.length;
+  });
 
-function Punct({ children }) {
-  return <span className="text-slate-500">{children}</span>;
+  const fullText = tokens.map((tk) => tk.text).join("");
+  const hidden = fullText.slice(Math.max(0, visibleChars));
+
+  return (
+    <div className="leading-7 whitespace-pre">
+      {parts}
+      {showCursor && (
+        <span className="inline-block w-2 h-4 bg-slate-400 align-middle" aria-hidden="true" />
+      )}
+      {hidden && <span className="opacity-0">{hidden}</span>}
+    </div>
+  );
 }
 
 export default function TerminalCard() {
   const [mode, setMode] = useState("terminal");
   const [exitAnim, setExitAnim] = useState("");
+  // Skip the animation entirely for reduced-motion users and repeat visits
+  const [typedChars, setTypedChars] = useState(() =>
+    hasTypedThisSession() || prefersReducedMotion() ? TOTAL_CHARS : 0
+  );
+  const isTyping = typedChars < TOTAL_CHARS;
+
+  useEffect(() => {
+    if (!isTyping) {
+      markTyped();
+      return;
+    }
+    const interval = setInterval(() => {
+      setTypedChars((c) => Math.min(c + 2, TOTAL_CHARS));
+    }, 22);
+    return () => clearInterval(interval);
+  }, [isTyping]);
 
   function animateOut(type) {
     setExitAnim(type);
@@ -32,6 +125,8 @@ export default function TerminalCard() {
       setExitAnim("");
     }, 220);
   }
+
+  let lineStart = 0;
 
   return (
     <div className="w-full max-w-sm lg:max-w-md">
@@ -75,41 +170,27 @@ export default function TerminalCard() {
             <span className="ml-3 text-xs text-slate-500 font-mono">~/portfolio</span>
           </div>
 
-          {/* Code body */}
+          {/* Code body — types itself out on first view each session */}
           <div className="bg-slate-900 px-6 py-6 font-mono text-sm text-slate-300">
-            <Line>
-              <Kw>const</Kw>
-              <span className="text-white"> nick </span>
-              <Punct>= &#123;</Punct>
-            </Line>
+            {CODE_LINES.map((tokens, i) => {
+              const start = lineStart;
+              lineStart += LINE_LENGTHS[i];
+              const visible = typedChars - start;
+              const isActiveLine =
+                isTyping && visible >= 0 && visible < LINE_LENGTHS[i];
+              return (
+                <CodeLine
+                  key={i}
+                  tokens={tokens}
+                  visibleChars={visible}
+                  showCursor={isActiveLine}
+                />
+              );
+            })}
 
-            <Line>
-              <span className="ml-4"><Key>role</Key><Punct>: </Punct><Str>Frontend Developer</Str><Punct>,</Punct></span>
-            </Line>
-
-            <Line>
-              <span className="ml-4"><Key>based</Key><Punct>: </Punct><Str>Avondale, AZ, USA</Str><Punct>,</Punct></span>
-            </Line>
-
-            <Line><span className="ml-4"><Key>stack</Key><Punct>: [</Punct></span></Line>
-            <Line><span className="ml-8"><Str>React</Str><Punct>,</Punct></span></Line>
-            <Line><span className="ml-8"><Str>TypeScript</Str><Punct>,</Punct></span></Line>
-            <Line><span className="ml-8"><Str>Tailwind</Str></span></Line>
-            <Line><span className="ml-4"><Punct>],</Punct></span></Line>
-
-            <Line><span className="ml-4"><Key>focus</Key><Punct>: [</Punct></span></Line>
-            <Line><span className="ml-8"><Str>Clean UI</Str><Punct>,</Punct></span></Line>
-            <Line><span className="ml-8"><Str>Automation</Str><Punct>,</Punct></span></Line>
-            <Line><span className="ml-8"><Str>AI</Str></span></Line>
-            <Line><span className="ml-4"><Punct>],</Punct></span></Line>
-
-            <Line>
-              <span className="ml-4"><Key>status</Key><Punct>: </Punct><Str>Open to opportunities</Str></span>
-            </Line>
-
-            <Line><Punct>&#125;</Punct></Line>
-
-            <div className="mt-4 flex items-center gap-1 text-slate-500">
+            <div
+              className={`mt-4 flex items-center gap-1 text-slate-500 ${isTyping ? "opacity-0" : ""}`}
+            >
               <span>&gt;</span>
               <span className="cursor-blink w-2 h-4 bg-slate-400 inline-block ml-0.5" />
             </div>
