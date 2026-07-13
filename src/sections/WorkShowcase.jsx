@@ -22,21 +22,22 @@ export default function WorkShowcase() {
               <span className="status-dot" aria-hidden="true" />
               Open to opportunities
             </p>
-            <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3 hero-rise hero-rise-1">
+            <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3 hero-rise" style={{ "--rise-step": 1 }}>
               Portfolio · Frontend · Automation
             </p>
             <h1
               id="hero-heading"
-              className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4 hero-rise hero-rise-2"
+              className="text-3xl md:text-[2.4rem] font-semibold leading-tight mb-4 hero-rise"
+              style={{ "--rise-step": 2 }}
             >
               Hi, I&apos;m Nick.<br />I build clean frontends<br />and practical automation.
             </h1>
-            <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-md hero-rise hero-rise-3">
+            <p className="text-sm md:text-[0.95rem] leading-[1.55] opacity-90 mb-6 max-w-md hero-rise" style={{ "--rise-step": 3 }}>
               I like connecting the dots between design and implementation. I build
               clean UIs, wire them to real data and tools, and use automation or AI
               when it actually makes people&apos;s lives easier.
             </p>
-            <div className="flex flex-wrap gap-3 hero-rise hero-rise-4">
+            <div className="flex flex-wrap gap-3 hero-rise" style={{ "--rise-step": 4 }}>
               <Link to="/work" className="btn">View My Work →</Link>
               <a href="/resume.pdf" download="Nicholas_Swainston_Resume.pdf" className="btn">
                 Download Resume
@@ -45,7 +46,7 @@ export default function WorkShowcase() {
           </div>
 
           {/* Tech carousel */}
-          <div className="hero-rise hero-rise-5">
+          <div className="hero-rise" style={{ "--rise-step": 5 }}>
             <div className="h-px w-full bg-(--line) mb-5" />
             <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-40 mb-5">
               Working with modern technologies
@@ -55,7 +56,7 @@ export default function WorkShowcase() {
         </div>
 
         {/* Right column — terminal (rises alongside the heading) */}
-        <div className="flex justify-center hero-rise hero-rise-2">
+        <div className="flex justify-center hero-rise" style={{ "--rise-step": 2 }}>
           <TerminalCard />
         </div>
       </div>

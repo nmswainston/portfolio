@@ -2,10 +2,10 @@ import { useEffect } from "react";
 
 /**
  * Global scroll-reveal engine. Any element with a `data-reveal` attribute
- * fades and rises into view the first time it enters the viewport.
+ * rises into view the first time it enters the viewport.
  *
- * - `data-reveal` value is an optional stagger step (0, 1, 2, ...) worth
- *   80ms each, for sibling groups that enter together.
+ * - Stagger a sibling group by setting `--reveal-step` inline (0, 1, 2, ...);
+ *   the CSS computes the delay (80ms per step) via calc().
  * - Elements are hidden only after the `js-reveal` class lands on <html>,
  *   so prerendered HTML stays fully visible for crawlers and no-JS visitors.
  * - Reveals happen once per element (unobserved after firing), and the
@@ -20,28 +20,11 @@ export default function RevealOnScroll() {
     }
     document.documentElement.classList.add("js-reveal");
 
-    const reveal = (el) => {
-      const step = parseInt(el.dataset.reveal, 10) || 0;
-      if (step) {
-        el.style.transitionDelay = `${step * 80}ms`;
-        // The delay is only for the entrance; clear it so it doesn't slow
-        // down hover transitions on the same element afterwards.
-        el.addEventListener(
-          "transitionend",
-          () => {
-            el.style.transitionDelay = "";
-          },
-          { once: true }
-        );
-      }
-      el.classList.add("revealed");
-    };
-
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            reveal(entry.target);
+            entry.target.classList.add("revealed");
             io.unobserve(entry.target);
           }
         }

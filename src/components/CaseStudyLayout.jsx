@@ -88,7 +88,7 @@ export default function CaseStudyLayout({ project, children }) {
 
             {/* Visual - Right side on desktop */}
             {hasVisual && (
-              <div className="case-study-hero-visual hero-rise hero-rise-2">
+              <div className="case-study-hero-visual hero-rise" style={{ "--rise-step": 2 }}>
                 <div className="case-study-mockup-container w-full max-w-[640px] lg:max-w-[720px] xl:max-w-[820px] 2xl:max-w-[920px] mx-auto">
                   <DeviceMockup
                     type={mockupType}

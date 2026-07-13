@@ -40,7 +40,7 @@ export default function AllWork() {
         </header>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-12" role="group" aria-label="Filter projects by technology" data-reveal="1">
+        <div className="flex flex-wrap gap-2 mb-12" role="group" aria-label="Filter projects by technology" data-reveal style={{ "--reveal-step": 1 }}>
           {["All", ...FILTER_TAGS].map((tag) => (
             <button
               key={tag}
