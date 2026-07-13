@@ -28,7 +28,7 @@ export default function AllWork() {
   return (
     <section id="all-work" className="section" aria-labelledby="all-work-heading">
       <div className="container">
-        <header className="max-w-xl mb-10">
+        <header className="max-w-xl mb-10" data-reveal>
           <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-2">Portfolio</p>
           <h1 id="all-work-heading" className="text-2xl md:text-3xl font-semibold mb-3">
             All of my work
@@ -40,7 +40,7 @@ export default function AllWork() {
         </header>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-12" role="group" aria-label="Filter projects by technology">
+        <div className="flex flex-wrap gap-2 mb-12" role="group" aria-label="Filter projects by technology" data-reveal="1">
           {["All", ...FILTER_TAGS].map((tag) => (
             <button
               key={tag}
@@ -64,6 +64,7 @@ export default function AllWork() {
               key={project.slug}
               className="py-16 border-t border-(--line) first:border-t-0 first:pt-0"
               aria-label={project.title}
+              data-reveal
             >
               <ProjectCard
                 project={project}

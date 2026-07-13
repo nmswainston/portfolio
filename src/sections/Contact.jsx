@@ -13,7 +13,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
         {/* Left — info */}
-        <div>
+        <div data-reveal>
           <p className="text-[0.65rem] uppercase tracking-[0.25em] opacity-70 mb-3">Get In Touch</p>
           <h2 id="contact-heading" className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
             Let&apos;s work<br />together.
@@ -57,7 +57,7 @@ export default function Contact() {
         </div>
 
         {/* Right — form */}
-        <div>
+        <div data-reveal="1">
           <form
             name="contact"
             method="POST"
