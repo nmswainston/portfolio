@@ -832,23 +832,22 @@ h2 {
   filter: invert(1);
 }
 
-/* Hero entrance stagger — elements rise and fade in on first paint.
-   Delays stay under 400ms so the LCP heading isn't meaningfully delayed. */
-@keyframes hero-rise {
+/* Entrance motion — one shared keyframe for the hero stagger and scroll
+   reveals. Stagger is index math: elements set --rise-step / --reveal-step
+   (inline style) and the delay is computed, so any number of siblings can
+   cascade without per-position delay classes. */
+@keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Hero entrance — runs on first paint. Steps are 70ms apart and stay
+   under 400ms so the LCP heading isn't meaningfully delayed. */
 .hero-rise {
   opacity: 0;
-  animation: hero-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--rise-step, 0) * 70ms);
 }
-
-.hero-rise-1 { animation-delay: 0.07s; }
-.hero-rise-2 { animation-delay: 0.14s; }
-.hero-rise-3 { animation-delay: 0.21s; }
-.hero-rise-4 { animation-delay: 0.28s; }
-.hero-rise-5 { animation-delay: 0.35s; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise {
@@ -857,21 +856,18 @@ h2 {
   }
 }
 
-/* Scroll reveal — elements with [data-reveal] fade and rise into view.
-   Hidden only under .js-reveal (added by RevealOnScroll on mount), so
-   prerendered HTML stays visible for crawlers and no-JS visitors.
-   RevealOnScroll skips adding the class for prefers-reduced-motion. */
+/* Scroll reveal — elements with [data-reveal] rise into view when
+   RevealOnScroll adds .revealed. Hidden only under .js-reveal (added on
+   mount), so prerendered HTML stays visible for crawlers and no-JS
+   visitors. RevealOnScroll skips adding the class for reduced motion.
+   `both` fill keeps the element hidden through its stagger delay. */
 .js-reveal [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.55s ease,
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .js-reveal [data-reveal].revealed {
-  opacity: 1;
-  transform: translateY(0);
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--reveal-step, 0) * 80ms);
 }
 
 /* Featured work cards — lift on hover, screenshot leans in.

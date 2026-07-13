@@ -14,7 +14,7 @@ export default function Section({ id, title, hint, children }) {
           {title}
         </h2>
       )}
-      {hint && <p className="hint" data-reveal="1">{hint}</p>}
+      {hint && <p className="hint" data-reveal style={{ "--reveal-step": 1 }}>{hint}</p>}
       {children}
     </section>
   );

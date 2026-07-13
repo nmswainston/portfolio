@@ -57,7 +57,7 @@ export default function Contact() {
         </div>
 
         {/* Right — form */}
-        <div data-reveal="1">
+        <div data-reveal style={{ "--reveal-step": 1 }}>
           <form
             name="contact"
             method="POST"
