@@ -821,9 +821,25 @@ h2 {
   animation-play-state: paused;
 }
 
+/* The track pause invites a closer look; the hovered icon answers by
+   leaning in. Kept small — the icons aren't links. */
+.marquee-track img {
+  transition: transform 0.2s ease;
+}
+
+.marquee-track img:hover {
+  transform: translateY(-3px) scale(1.12);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+
+  .marquee-track img,
+  .marquee-track img:hover {
+    transition: none;
+    transform: none;
   }
 }
 
