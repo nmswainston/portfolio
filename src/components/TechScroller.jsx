@@ -29,7 +29,9 @@ const TECHS = [
 
 export default function TechScroller() {
   return (
-    <div className="overflow-hidden w-full" aria-label="Technologies I work with">
+    // py-2/-my-2: headroom inside the overflow clip so the hover lift/scale
+    // isn't cut off at the top; the negative margin keeps layout unchanged
+    <div className="overflow-hidden w-full py-2 -my-2" aria-label="Technologies I work with">
       <div className="marquee-track">
         {TECHS.map((t) => (
           <img
