@@ -832,6 +832,31 @@ h2 {
   filter: invert(1);
 }
 
+/* Hero entrance stagger — elements rise and fade in on first paint.
+   Delays stay under 400ms so the LCP heading isn't meaningfully delayed. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-rise-1 { animation-delay: 0.07s; }
+.hero-rise-2 { animation-delay: 0.14s; }
+.hero-rise-3 { animation-delay: 0.21s; }
+.hero-rise-4 { animation-delay: 0.28s; }
+.hero-rise-5 { animation-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 /* Hero availability badge */
 .availability-badge {
   display: inline-flex;
