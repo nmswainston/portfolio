@@ -12,9 +12,6 @@ dist
 dist-ssr
 *.local
 
-# AI assistant files (local only)
-.claude/
-AGENTS.md
 
 # Editor directories and files
 .vscode/*
